@@ -48,13 +48,15 @@ export default {
     },
     methods:{
         signIn(){
-            console.log('login');
             const api = `${process.env.VUE_APP_API}admin/signin`;
-            console.log(api);
             this.$http.post(api,this.user)
             .then((res)=>{
-                console.log(res);
-            })
+                if(res.data.success){
+                    const {token,expired}=res.data;
+                    document.cookie=`hexToken=${token};expires=${new Date(expired)}`;
+                    this.$router.push('/dashboard/products')
+                }
+            });
         }
     }
 }
