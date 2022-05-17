@@ -19,27 +19,27 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="i in products" :key="i.id">
-        <td>{{ i.category }}</td>
-        <td>{{ i.title }}</td>
-        <td class="text-right">{{ i.origin_price }}</td>
-        <td class="text-right">{{ i.price }}</td>
+      <tr v-for="item in products" :key="item.id">
+        <td>{{ item.category }}</td>
+        <td>{{ item.title }}</td>
+        <td class="text-right">{{ $filters.currency(item.origin_price) }}</td>
+        <td class="text-right">{{ $filters.currency(item.price) }}</td>
         <td>
-          <span class="text-success" v-if="i.is_enabled">啟用</span>
+          <span class="text-success" v-if="item.is_enabled">啟用</span>
           <span class="text-muted" v-else>未啟用</span>
         </td>
         <td>
           <div class="btn-group">
             <button
               class="btn btn-outline-primary btn-sm"
-              @click="openModal(false, i)"
+              @click="openModal(false, item)"
             >
               編輯
             </button>
             <!-- 如果開啟不是空的話，就打開當前品項 -->
             <button
               class="btn btn-outline-danger btn-sm"
-              @click="delModal(item)"
+              @click="openDelModal(item)"
             >
               刪除
             </button>
@@ -57,7 +57,7 @@
   ></ProductModal>
   <DelModal
     ref="delModal"
-    :product="tempProduct"
+    :item="tempProduct"
     @del-item="delProduct"
   ></DelModal>
 </template>
@@ -138,7 +138,8 @@ export default {
       const productComponent = this.$refs.productModal;
       productComponent.showModal(); //打開
     },
-    delModal(item) {
+    openDelModal(item) {
+        console.log(item);
       this.tempProduct = { ...item }; 
       const delComponent = this.$refs.delModal;
       delComponent.showModal(); 
