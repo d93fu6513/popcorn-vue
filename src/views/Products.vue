@@ -48,6 +48,8 @@
       </tr>
     </tbody>
   </table>
+  <Page :pages="pagination"
+    @emit-pages="getProducts"></Page>
   <ProductModal
     ref="productModal"
     :product="tempProduct"
@@ -63,6 +65,7 @@
 <script>
 import ProductModal from "../components/ProductModal.vue";
 import DelModal from "../components/DelModal.vue";
+import Page from '@/components/Page.vue';
 export default {
   data() {
     return {
@@ -76,11 +79,12 @@ export default {
   components: {
     ProductModal,
     DelModal,
+    Page,
   },
   inject:['emitter'],
   methods: {
-    getProducts() {
-      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products`;
+    getProducts(page = 1) {
+      const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/products/?page=${page}`;
       this.isLoading = true;
       this.$http.get(api).then((res) => {
         this.isLoading = false;
