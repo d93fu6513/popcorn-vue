@@ -3,7 +3,7 @@
     <div class="container">
       <h2>好運商品</h2>
       <div class="shopnav">
-        <a style="margin-bottom:20px"
+        <a 
           href=""
           :class="{ 'active': link === '經典款' }"
           @click.prevent="link = '經典款'"
@@ -199,7 +199,7 @@
     text-decoration: none;
     letter-spacing: 20px;
     @media screen and (max-width: 768px) {
-        padding: 30px 40px;
+        margin-bottom:20px;
             }
     svg {
       width: 80px;
@@ -256,7 +256,7 @@
   flex-wrap: wrap;
   margin-top: 30px;
   @media screen and (max-width: 768px) {
-        margin-top: 20px;
+        margin-top: 0px;
             }
   .item {
     display: flex;
