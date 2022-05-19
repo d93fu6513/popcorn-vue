@@ -1,27 +1,34 @@
 <template>
   <Loading :active="isLoading">
   </Loading>
-  <div class="text-end">
+  
+  <div class="container">
+      <div class="text-end">
     <button class="btn btn-primary" type="button" @click="openModal(true)">
       <!-- 如果開啟是空的話，就打開空的 -->
       新增產品
     </button>
   </div>
-  <table class="table mt-4">
+      <table class="table mt-4">
     <thead>
       <tr>
-        <th width="120">分類</th>
+        <th >分類</th>
         <th>產品名稱</th>
-        <th width="120">原價</th>
-        <th width="120">售價</th>
-        <th width="100">是否啟用</th>
-        <th width="200">編輯</th>
+        <th>描述</th>
+        <th>說明</th>
+        <th>圖片</th>
+        <th >原價</th>
+        <th >售價</th>
+        <th>是否啟用</th>
+        <th>編輯</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="item in products" :key="item.id">
         <td>{{ item.category }}</td>
         <td>{{ item.title }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.content }}</td>
         <td class="text-right">{{ $filters.currency(item.origin_price) }}</td>
         <td class="text-right">{{ $filters.currency(item.price) }}</td>
         <td>
@@ -48,6 +55,8 @@
       </tr>
     </tbody>
   </table>
+  </div>
+  
   <Page :pages="pagination"
     @emit-pages="getProducts"></Page>
   <ProductModal
@@ -65,7 +74,7 @@
 <script>
 import ProductModal from "../components/ProductModal.vue";
 import DelModal from "../components/DelModal.vue";
-import Page from '@/components/Page.vue';
+import Page from '../components/Page.vue';
 export default {
   data() {
     return {
@@ -112,19 +121,7 @@ export default {
         //把儲存資料發送
         console.log(res);
         productComponent.hideModal(); //新增完關閉
-        if (res.data.success) {
-          this.getProducts();
-          this.emitter.emit('push-message', {
-            style: 'success',
-            title: '更新成功',
-          });
-        } else {
-          this.emitter.emit('push-message', {
-            style: 'danger',
-            title: '更新失敗',
-            content: res.data.message.join('、'),
-          });
-        }
+        this.$httpMessageState(res, '更新');
       });
     },
     openModal(isNew, item) {
