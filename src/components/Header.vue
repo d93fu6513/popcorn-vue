@@ -47,12 +47,12 @@
   </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 header {
   width: 100%;
   position: fixed;
   top: 0px;
-  z-index: 9999;
+  z-index: 2;
 }
 .header-container {
   background-color: #3d7cfc;
@@ -93,17 +93,12 @@ header {
   i {
     margin-right: 8px;
   }
-  .bi-megaphone {
-    color: #d1411d;
-  }
-  .bi-shop {
-    color: #e07bb6;
-  }
-  .bi-chat-text {
+  .bi-megaphone,
+  .bi-shop,
+  .bi-chat-text,
+  .bi-gear
+   {
     color: #d1ce1d;
-  }
-  .bi-gear {
-    color: #1dd1a1;
   }
 }
 
@@ -225,7 +220,7 @@ export default {
     },
     screenSize() {
       this.screenWidth = window.innerWidth;
-      if (this.screenWidth <= 900) {
+      if (this.screenWidth <= 768) {
         this.mobile = true;
         return;
       }

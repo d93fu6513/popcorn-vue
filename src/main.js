@@ -9,7 +9,8 @@ import Loading from 'vue3-loading-overlay';
 import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import MenuIcon from 'vue-material-design-icons/Menu.vue';
-import VueClipboard from 'vue-clipboard2';
+import VueClipboard from 'vue-clipboard2'
+
 
 
 const app = createApp(App)
@@ -23,7 +24,6 @@ app.config.globalProperties.$httpMessageState = $httpMessageState;
 app.use(VueAxios, axios) //app.use安裝插件
 app.use(router)
 app.use(MenuIcon)
-VueClipboard.config.autoSetContainer = true
 app.use(VueClipboard)
 app.component('Loading',Loading) //app.component註冊全域元件
 

@@ -15,12 +15,7 @@
             <p>getlucky60</p>
           </div>
         </div>
-        <button
-          type="button"
-          v-clipboard:copy="message"
-          v-clipboard:success="onCopy"
-          v-clipboard:error="onError"
-        >
+        <button type="button" @click="copy">
           <i class="bi bi-balloon"></i>
           <p>點我領取</p>
         </button>
@@ -40,22 +35,22 @@
     background-image: none;
   }
   .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 0;
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    position: relative;
-    padding: 30px 0 0 0;
-  }
-  img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
     @media screen and (max-width: 768px) {
-      width: 100%;
-      height: 100%;
+      flex-direction: column;
+      position: relative;
+      padding: 30px 0 0 0;
+    }
+    img {
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
-}
 }
 
 .text-container {
@@ -217,11 +212,11 @@ export default {
     };
   },
   methods: {
-    onCopy(e) {
-      alert("You just copied");
-    },
-    onError(e) {
-      alert("Failed to copy texts");
+    copy() {
+      this.$copyText(this.message)
+        .then(() => {})
+        .catch(() => {});
+        alert('優惠碼複製成功')
     },
   },
 };
