@@ -204,7 +204,6 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
       this.$http.get(url).then((response) => {
-        this.$httpMessageState(response, '新增購物車品項');
         this.cart = response.data.data;
         this.isLoading = false;
       });

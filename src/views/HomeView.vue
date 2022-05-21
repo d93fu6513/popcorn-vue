@@ -4,7 +4,7 @@
     <Sale></Sale>
     <Shop></Shop>
     <Footer></Footer>
-
+    <router-view/>
 </template>
 
 <script>
