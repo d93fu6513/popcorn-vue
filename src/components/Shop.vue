@@ -1,5 +1,5 @@
 <template>
-  <!-- <Loading :active="isLoading"></Loading> -->
+  <Loading :active="isLoading"></Loading>
   <div class="wrap">
     <div class="container">
       <h2>好運商品</h2>
@@ -10,8 +10,12 @@
         <button class="sidecarticon-back" @click="tooglesideCart">
           查看<br />購物車
         </button>
-        <div class="icon-num" v-if="cart.carts.length">{{cart.carts.length}}</div>
-        <div class="icon-null" v-else>來點好運</div>
+        <template v-for="i in cart.carts" :key="i.id">
+          <div class="icon-num" v-if="i.total >= 1">
+            {{ cart.carts.length }}
+          </div>
+          <div class="icon-null" v-else>來點好運</div>
+        </template>
       </div>
       <div class="shopnav">
         <a
@@ -107,7 +111,9 @@
             v-show="item.category === '經典款'"
             v-if="link === '經典款'"
           >
-            <a href="" @click.prevent="getProduct(item.id)"><img :src="item.imageUrl" alt="" /></a>
+            <a href="" @click.prevent="getProduct(item.id)"
+              ><img :src="item.imageUrl" alt=""
+            /></a>
             <h3>{{ item.title }}</h3>
             <h4>{{ item.description }}</h4>
             <h5>${{ item.price }}元</h5>
@@ -160,7 +166,11 @@
           <h2><i class="bi bi-cart"></i> 好運購物車</h2>
           <a href="" @click.prevent="tooglesideCart"><i class="bi bi-x"></i></a>
         </div>
-        <div class="cart-item" v-for="(item, index) in cart.carts" :key="(item, index).id">
+        <div
+          class="cart-item"
+          v-for="item in cart.carts"
+          :key="item.id"
+        >
           <div class="cart-photo">
             <img :src="item.product.imageUrl" alt="" />
           </div>
@@ -332,7 +342,7 @@ img {
   width: 100px;
   height: 100px;
 }
-.sidecarticon {  
+.sidecarticon {
   background-color: transparent;
   transform: perspective(1000px) rotateY(0deg);
   @media screen and (max-width: 768px) {
@@ -340,7 +350,7 @@ img {
     bottom: -10px;
   }
 }
-.sidecarticon-back {  
+.sidecarticon-back {
   font-size: 22px;
   background-color: #d67675;
   border-radius: 50%;
@@ -350,7 +360,7 @@ img {
     display: none;
   }
 }
-.icon-num{
+.icon-num {
   position: fixed;
   right: 50px;
   width: 38px;
@@ -365,7 +375,7 @@ img {
   border-radius: 50%;
   text-align: center;
 }
-.icon-null{
+.icon-null {
   position: fixed;
   right: 50px;
   bottom: 190px;
@@ -607,8 +617,8 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.isLoading = true;
       this.$http.get(url).then((res) => {
-        this.products = res.data.products;
         this.isLoading = false;
+        this.products = res.data.products;
       });
     },
     getProduct(id) {
@@ -621,8 +631,9 @@ export default {
         product_id: id,
         qty: 1,
       };
-      this.$http.post(url, { data: cart }).then(() => {        
+      this.$http.post(url, { data: cart }).then((res) => {
         this.status.loadingItem = "";
+        this.$httpMessageState(res, '加入購物車');
         this.getCart();
       });
     },
@@ -630,7 +641,6 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
       this.$http.get(url).then((res) => {
-        this.$httpMessageState(res, '新增購物車品項');
         this.cart = res.data.data;
         this.isLoading = false;
       });
@@ -644,8 +654,7 @@ export default {
         qty: item.qty,
       };
       this.$http.put(url, { data: cart }).then((res) => {
-        console.log(res);
-        this.status.loadingItem = '';
+        this.status.loadingItem = "";
         this.getCart();
       });
     },
@@ -654,7 +663,7 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.isLoading = true;
       this.$http.delete(url).then((res) => {
-        this.$httpMessageState(res, '移除購物車品項');
+        this.$httpMessageState(res, "移除購物車品項");
         this.status.loadingItem = "";
         this.getCart();
         this.isLoading = false;

@@ -1,10 +1,18 @@
 <template>
-  <div class="toast-container position-absolute pe-3 bottom-0 end-0">
+  <div class="toastcontainer">
     <Toast v-for="(msg, key) in messages" :key="key"
       :msg="msg"
     />
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .toastcontainer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+</style>
 
 <script>
 import Toast from '../components/Toast.vue';
