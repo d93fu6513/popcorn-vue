@@ -38,11 +38,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 0;
     @media screen and (max-width: 768px) {
       flex-direction: column;
       position: relative;
-      padding: 30px 0 0 0;
     }
     img {
       @media screen and (max-width: 768px) {
@@ -56,9 +54,8 @@
 .text-container {
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
+  margin: 40px;
   @media screen and (max-width: 768px) {
-    margin-left: 0px;
     position: absolute;
     background-color: #e9f0f3;
     align-items: center;

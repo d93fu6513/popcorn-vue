@@ -11,7 +11,7 @@
         <router-link to="/"
           ><i class="bi bi-megaphone"></i> 好運消息</router-link
         >
-        <router-link to="/"><i class="bi bi-shop"></i> 好運商品</router-link>
+        <router-link to="/product"><i class="bi bi-shop"></i> 好運商品</router-link>
         <router-link to="/"
           ><i class="bi bi-chat-text"></i> 關於好運</router-link
         >

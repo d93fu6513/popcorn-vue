@@ -348,6 +348,8 @@ img {
   @media screen and (max-width: 768px) {
     right: -10px;
     bottom: -10px;
+    width: 80px;
+    height: 80px;
   }
 }
 .sidecarticon-back {
@@ -374,21 +376,28 @@ img {
   color: white;
   border-radius: 50%;
   text-align: center;
+  @media screen and (max-width: 768px) {
+    bottom: 40px;
+    right: 40px;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
 }
-.icon-null {
-  position: fixed;
-  right: 50px;
-  bottom: 190px;
-  z-index: 2;
-  border: none;
-  background-color: #d67675;
-  width: 56px;
-  height: 56px;
-  font-size: 18px;
-  padding: 10px;
-  color: white;
-  border-radius: 10px;
-}
+// .icon-null {
+//   position: fixed;
+//   right: 50px;
+//   bottom: 190px;
+//   z-index: 2;
+//   border: none;
+//   background-color: #d67675;
+//   width: 56px;
+//   height: 56px;
+//   font-size: 18px;
+//   padding: 10px;
+//   color: white;
+//   border-radius: 10px;
+// }
 .shopbody {
   display: flex;
   flex-wrap: wrap;
