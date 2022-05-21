@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading"></Loading>
+  <!-- <Loading :active="isLoading"></Loading> -->
   <div class="wrap">
     <div class="container">
       <h2>好運商品</h2>
@@ -10,8 +10,8 @@
         <button class="sidecarticon-back" @click="tooglesideCart">
           查看<br />購物車
         </button>
-        <div class="iconnum">購物車空空的</div>
-        <div class="iconnum">1</div>
+        <div class="icon-num" v-if="cart.carts.length">{{cart.carts.length}}</div>
+        <div class="icon-null" v-else>來點好運</div>
       </div>
       <div class="shopnav">
         <a
@@ -107,7 +107,7 @@
             v-show="item.category === '經典款'"
             v-if="link === '經典款'"
           >
-            <a href=""><img :src="item.imageUrl" alt="" /></a>
+            <a href="" @click.prevent="getProduct(item.id)"><img :src="item.imageUrl" alt="" /></a>
             <h3>{{ item.title }}</h3>
             <h4>{{ item.description }}</h4>
             <h5>${{ item.price }}元</h5>
@@ -350,15 +350,34 @@ img {
     display: none;
   }
 }
-.iconnum{
+.icon-num{
   position: fixed;
-  right: 40px;
-  bottom: 250px;
+  right: 50px;
+  width: 38px;
+  height: 38px;
+  bottom: 190px;
   z-index: 2;
   border: none;
-  background-color: #485741;
-  font-size: 22px;
+  background-color: #d67675;
+  font-size: 18px;
   padding: 10px;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+}
+.icon-null{
+  position: fixed;
+  right: 50px;
+  bottom: 190px;
+  z-index: 2;
+  border: none;
+  background-color: #d67675;
+  width: 56px;
+  height: 56px;
+  font-size: 18px;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
 }
 .shopbody {
   display: flex;
@@ -602,7 +621,7 @@ export default {
         product_id: id,
         qty: 1,
       };
-      this.$http.post(url, { data: cart }).then(() => {
+      this.$http.post(url, { data: cart }).then(() => {        
         this.status.loadingItem = "";
         this.getCart();
       });
@@ -611,8 +630,23 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
       this.$http.get(url).then((res) => {
+        this.$httpMessageState(res, '新增購物車品項');
         this.cart = res.data.data;
         this.isLoading = false;
+      });
+    },
+    updateCart(item) {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
+      this.isLoading = true;
+      this.status.loadingItem = item.id;
+      const cart = {
+        product_id: item.product_id,
+        qty: item.qty,
+      };
+      this.$http.put(url, { data: cart }).then((res) => {
+        console.log(res);
+        this.status.loadingItem = '';
+        this.getCart();
       });
     },
     removeCartItem(id) {
@@ -620,7 +654,7 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
       this.isLoading = true;
       this.$http.delete(url).then((res) => {
-        this.$httpMessageState(res, "移除購物車品項");
+        this.$httpMessageState(res, '移除購物車品項');
         this.status.loadingItem = "";
         this.getCart();
         this.isLoading = false;
