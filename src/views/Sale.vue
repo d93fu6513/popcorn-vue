@@ -16,8 +16,8 @@
           </div>
         </div>
         <button type="button" @click="copy">
-          <i class="bi bi-balloon"></i>
-          <p>點我領取</p>
+          
+          <p>點我領取 <font-awesome-icon :icon="['fas', 'arrow-pointer']" /></p>
         </button>
       </div>
     </div>
@@ -26,21 +26,23 @@
 
 <style lang="scss" scoped>
 .wrap {
-  margin: auto;
-  max-width: 1200px;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(115deg, #f6cfe1 50%, #e9f0f3 50%);
+  margin: 50px 0;
   @media screen and (max-width: 768px) {
-    background-image: none;
-  }
+      margin: 20px 0;
+    }
   .container {
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(115deg, #f6cfe1 50%, #e9f0f3 50%);
     display: flex;
     justify-content: center;
     align-items: center;
     @media screen and (max-width: 768px) {
       flex-direction: column;
       position: relative;
+      background-image: none;
     }
     img {
       @media screen and (max-width: 768px) {
@@ -82,7 +84,7 @@
     font-size: 20px;
     margin-bottom: 10px;
     text-align: center;
-    color: #3d7cfc;
+    color: #93a38a;
     @media screen and (max-width: 768px) {
       font-size: 20px;
       text-align: center;

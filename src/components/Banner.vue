@@ -6,8 +6,8 @@
     }"
     class="mySwiper">
     <swiper-slide><img src="../assets/images/banner1.png" alt="banner1" width="100%"></swiper-slide>
-    <swiper-slide><img src="../assets/images/banner2.png" alt="banner2" width="100%"></swiper-slide>
-    <swiper-slide><img src="../assets/images/banner3.png" alt="banner3" width="100%"></swiper-slide>
+    <swiper-slide><img src="../assets/images/banner1-2.png" alt="banner2" width="100%"></swiper-slide>
+    <swiper-slide><img src="../assets/images/banner1-3.png" alt="banner3" width="100%"></swiper-slide>
   </swiper>
   
 </template>
@@ -16,9 +16,8 @@
 .swiper {
   width: 100%;
   height: 100%;
-  margin: 120px 0 30px 0;
   @media screen and (max-width: 768px) {    
-    margin: 70px 0 15px 0;
+    margin: 70px 0 0 0;
   }
 }
 

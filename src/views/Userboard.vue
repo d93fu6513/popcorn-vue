@@ -11,7 +11,7 @@
 <script>
 import Header from '@/components/Header.vue';
 import Banner from '@/components/Banner.vue';
-import Sale from '@/components/Sale.vue';
+import Sale from '@/views/Sale.vue';
 import UserCart from '@/views/UserCart.vue';
 import Footer from '@/components/Footer.vue';
 import emitter from "../methods/emitter";

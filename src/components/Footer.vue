@@ -5,6 +5,7 @@
 <style lang="scss" scoped>
 footer{
     height: 100px;
-    background-color: #3d7cfc;
+    background-color: #93a38a;
+    margin-top: 100px;
 }
 </style>

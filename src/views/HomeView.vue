@@ -3,6 +3,8 @@
     <Banner></Banner>
     <Sale></Sale>
     <UserCart></UserCart>
+    <Banner2></Banner2>
+    <About></About>
     <Footer></Footer>
     <ToastMessages></ToastMessages>
     <router-view/>
@@ -11,8 +13,10 @@
 <script>
 import Header from '@/components/Header.vue';
 import Banner from '@/components/Banner.vue';
-import Sale from '@/components/Sale.vue';
+import Sale from '@/views/Sale.vue';
 import UserCart from '@/views/UserCart.vue';
+import About from '@/views/About.vue';
+import Banner2 from '@/components/Banner2.vue';
 import Footer from '@/components/Footer.vue';
 import emitter from "@/methods/emitter";
 import ToastMessages from "@/components/ToastMessages.vue";
@@ -23,6 +27,8 @@ export default {
     Banner,
     Sale,
     UserCart,
+    Banner2,
+    About,
     Footer,
     ToastMessages,
   },

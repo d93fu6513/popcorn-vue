@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" ref="toast">
+  <div class="toast" ref="toast">
     <div class="toast-header">
       <span :class="`bg-${msg.style}`" class="p-2 rounded me-2 d-inline-block"></span>
       <strong class="me-auto">{{ msg.title }}</strong>
@@ -10,6 +10,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import Toast from 'bootstrap/js/dist/toast';
 export default {

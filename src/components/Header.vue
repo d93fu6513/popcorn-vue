@@ -5,19 +5,12 @@
       :class="{ 'header-container-scrolled': scrollNav }"
     >
       <router-link to="/" class="logo">
-        <img src="../assets/images/logo.png" alt="" />
+        <img src="../assets/images/logo.png" alt="logo" />
       </router-link>
       <nav class="header-menu" v-show="!mobile">
-        <router-link to="/"
-          ><i class="bi bi-megaphone"></i> 好運消息</router-link
-        >
-        <router-link to="/product"><i class="bi bi-shop"></i> 好運商品</router-link>
-        <router-link to="/"
-          ><i class="bi bi-chat-text"></i> 關於好運</router-link
-        >
-        <router-link to="/login"
-          ><i class="bi bi-gear"></i> 好運管理員</router-link
-        >
+          <router-link to="/product"><font-awesome-icon :icon="['fas', 'store']" /> 好運商品</router-link>
+          <router-link to="/"><font-awesome-icon :icon="['fas', 'circle-info']" /> 關於好運</router-link>
+          <router-link to="/login"><font-awesome-icon :icon="['fas', 'gear']" /> 好運管理員</router-link>
       </nav>
       <div
         class="hamburger-icon"
@@ -31,16 +24,9 @@
       </div>
       <transition name="mobile-nav">
         <nav class="mobile-menu" v-show="mobileNav">
-          <router-link to="/"
-            ><i class="bi bi-megaphone"></i> 好運消息</router-link
-          >
-          <router-link to="/"><i class="bi bi-shop"></i> 好運商品</router-link>
-          <router-link to="/"
-            ><i class="bi bi-chat-text"></i> 關於好運</router-link
-          >
-          <router-link to="/login"
-            ><i class="bi bi-gear"></i> 好運管理員</router-link
-          >
+          <router-link to="/product"><font-awesome-icon :icon="['fas', 'store']" /> 好運商品</router-link>
+          <router-link to="/"><font-awesome-icon :icon="['fas', 'circle-info']" /> 關於好運</router-link>
+          <router-link to="/login"><font-awesome-icon :icon="['fas', 'gear']" /> 好運管理員</router-link>
         </nav>
       </transition>
     </div>
@@ -55,7 +41,7 @@ header {
   z-index: 2;
 }
 .header-container {
-  background-color: #3d7cfc;
+  background-color: #93a38a;
   display: flex;
   position: relative;
   height: 120px;
@@ -86,19 +72,9 @@ header {
     border-radius: 4px;
     &:hover {
       background-color: white;
-      color: #3d7cfc;
+      color: #93a38a;
       transform: scale(1.1);
     }
-  }
-  i {
-    margin-right: 8px;
-  }
-  .bi-megaphone,
-  .bi-shop,
-  .bi-chat-text,
-  .bi-gear
-   {
-    color: #d1ce1d;
   }
 }
 
