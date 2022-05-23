@@ -1,17 +1,15 @@
 <template>
   <div class="wrap">
-    <div class="footerbody"></div>
+    <div class="footerbody">圖片僅供個人學習使用，無商業用途</div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-img {
-  width: 100%;
-  height: 100%;
-  vertical-align: middle;
-}
 .footerbody{
   height: 100px;
   background-color: #93a38a;
+  color: white;
+  text-align: center;
+  line-height: 100px;
 }
 </style>

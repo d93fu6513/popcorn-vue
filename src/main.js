@@ -17,7 +17,6 @@ import { faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShoppi
 import { faFacebookSquare, faInstagramSquare, faLine } from '@fortawesome/free-brands-svg-icons'
 library.add(faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck, faFacebookSquare, faInstagramSquare, faLine);
 
-
 const app = createApp(App)
 app.config.globalProperties.$filters = {
   currency,

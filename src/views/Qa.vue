@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" id="qa">
     <div class="container">
       <h2>常見問題</h2>
       <div class="item">
