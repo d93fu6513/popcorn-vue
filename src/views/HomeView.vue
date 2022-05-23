@@ -5,6 +5,7 @@
     <UserCart></UserCart>
     <Banner2></Banner2>
     <About></About>
+    <Qa></Qa>
     <Footer></Footer>
     <ToastMessages></ToastMessages>
     <router-view/>
@@ -17,6 +18,7 @@ import Sale from '@/views/Sale.vue';
 import UserCart from '@/views/UserCart.vue';
 import About from '@/views/About.vue';
 import Banner2 from '@/components/Banner2.vue';
+import Qa from '@/views/Qa.vue';
 import Footer from '@/components/Footer.vue';
 import emitter from "@/methods/emitter";
 import ToastMessages from "@/components/ToastMessages.vue";
@@ -29,6 +31,7 @@ export default {
     UserCart,
     Banner2,
     About,
+    Qa,
     Footer,
     ToastMessages,
   },

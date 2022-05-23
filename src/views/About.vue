@@ -30,7 +30,7 @@
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.9583744175125!2d121.61067421561208!3d25.001530345744925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd4c8aeb65b%3A0x5dd0ea45ce3735ab!2z5aW96YGL54iG57Gz6Iqx!5e0!3m2!1szh-TW!2stw!4v1653241815682!5m2!1szh-TW!2stw"
             width="100%"
-            height="485px"
+            height="487px"
             style="border: 0"
             allowfullscreen=""
             loading="lazy"

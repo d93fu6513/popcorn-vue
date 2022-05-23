@@ -13,9 +13,9 @@ import VueClipboard from 'vue-clipboard2'
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faInstagramSquare, faLine } from '@fortawesome/free-brands-svg-icons'
-library.add(faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck, faFacebookSquare, faInstagramSquare, faLine);
+library.add(faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck, faFacebookSquare, faInstagramSquare, faLine);
 
 
 const app = createApp(App)
@@ -32,5 +32,6 @@ app.use(MenuIcon)
 app.use(VueClipboard)
 app.component("font-awesome-icon", FontAwesomeIcon)
 app.component('Loading', Loading) //app.component註冊全域元件
+
 
 app.mount('#app')
