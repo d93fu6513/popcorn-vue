@@ -1,11 +1,9 @@
 <template>
   <Header></Header>
-  <Banner></Banner>
-  <Sale></Sale>
-  <UserCart></UserCart>
+  <router-view />
   <Footer></Footer>
   <ToastMessages></ToastMessages>
-  <router-view />
+  
 </template>
 
 <script>

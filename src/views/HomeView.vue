@@ -2,7 +2,7 @@
     <Header></Header>
     <Banner></Banner>
     <Sale></Sale>
-    <UserCart></UserCart>
+    <ShopProduct></ShopProduct>
     <Banner2></Banner2>
     <Info></Info>
     <Qa></Qa>
@@ -15,7 +15,7 @@
 import Header from '@/components/Header.vue';
 import Banner from '@/components/Banner.vue';
 import Sale from '@/views/Sale.vue';
-import UserCart from '@/views/UserCart.vue';
+import ShopProduct from '@/components/ShopProduct.vue';
 import Banner2 from '@/components/Banner2.vue';
 import Info from '@/views/Info.vue';
 import Qa from '@/views/Qa.vue';
@@ -28,7 +28,7 @@ export default {
     Header,
     Banner,
     Sale,
-    UserCart,
+    ShopProduct,
     Banner2,
     Info,
     Qa,
