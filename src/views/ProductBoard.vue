@@ -1,8 +1,6 @@
 <template>
   <Header></Header>
-  <Banner></Banner>
-  <Sale></Sale>
-  <ShopProduct></ShopProduct>
+  <router-view />
   <Footer></Footer>
   <ToastMessages></ToastMessages>
   
@@ -12,7 +10,6 @@
 import Header from '@/components/Header.vue';
 import Banner from '@/components/Banner.vue';
 import Sale from '@/views/Sale.vue';
-import ShopProduct from '@/components/ShopProduct.vue';
 import Footer from '@/components/Footer.vue';
 import emitter from "../methods/emitter";
 import ToastMessages from "../components/ToastMessages.vue";
@@ -22,7 +19,6 @@ export default {
     Header,
     Banner,
     Sale,
-    ShopProduct,
     Footer,
     ToastMessages,
   },

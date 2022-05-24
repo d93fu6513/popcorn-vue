@@ -46,21 +46,33 @@
                 />
                 <!-- 給這個input一個ref的名稱，為了取得這個dom元素，並將檔案取出使用 -->
               </div>
-              <img class="img-fluid" alt="" />
+              <img class="img-fluid" :src="tempProduct.imageUrl" alt="" />
               <!-- 延伸技巧，多圖 -->
-              <div class="mt-5">
-                <div class="mb-3 input-group">
+              <div class="mt-5" v-if="tempProduct.images">
+                <div v-for="(image, key) in tempProduct.images" class="mb-3 input-group" :key="key">
                   <input
                     type="url"
                     class="form-control form-control"
+                    v-model="tempProduct.images[key]"
                     placeholder="請輸入連結"
                   />
-                  <button type="button" class="btn btn-outline-danger">
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger"
+                    @click="tempProduct.images.splice(key, 1)"
+                  >
                     移除
                   </button>
                 </div>
-                <div>
-                  <button class="btn btn-outline-primary btn-sm d-block w-100">
+                <div
+                  v-if="
+                    tempProduct.images[tempProduct.images.length - 1] || !tempProduct.images.length
+                  "
+                >
+                  <button
+                    class="btn btn-outline-primary btn-sm d-block w-100"
+                    @click="tempProduct.images.push('')"
+                  >
                     新增圖片
                   </button>
                 </div>
@@ -201,6 +213,10 @@ export default {
     //監聽開啟MODAL時，外層傳進PRODUCT，再把資料寫到tempProduct
     product() {
       this.tempProduct = this.product;
+      // 多圖範例
+      if (!this.tempProduct.images) {
+        this.tempProduct.images = [];
+      }
     },
   },
   data() {
@@ -212,12 +228,12 @@ export default {
   methods: {
     uploadFile() {
       const uploadFile = this.$refs.fileInput.files[0]; //取出ref定義的dom元素，裡面的files資料
-      console.dir(uploadFile);
+      // console.dir(uploadFile);
       const formData = new FormData(); //建立formdata格式的內容
       formData.append("file-to-upload", uploadFile); //增加一個name屬性(api指定的)到這個檔案
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`;
       this.$http.post(api, formData).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.success) {
           this.tempProduct.imageUrl = res.data.imageUrl;
         }

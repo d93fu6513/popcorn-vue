@@ -17,29 +17,29 @@ const routes = [
     children: [
       {
         path: 'products',
-        component: () => import('../views/Products.vue')
+        component: () => import('../views/BkProducts.vue')
       },
       {
         path: 'orders',
-        component: () => import('../views/Orders.vue')
+        component: () => import('../views/BkOrders.vue')
       },
       {
         path: 'coupons',
-        component: () => import('../views/Coupons.vue')
+        component: () => import('../views/BkCoupons.vue')
       },
     ],
   },
   {
     path: '/product',
-    component: () => import('../views/Userboard.vue'),
+    component: () => import('../views/ProductBoard.vue'),
     children: [
       {
-        path: 'cart',
-        component: () => import('../views/UserCart.vue')
+        path: 'index',
+        component: () => import('../views/ProductIndex.vue')
       },
       {
         path: 'product/:productId',
-        component: () => import('../views/UserProduct.vue')
+        component: () => import('../views/ProductItem.vue')
       },
     ],
   },

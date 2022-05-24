@@ -8,7 +8,7 @@
         <img src="../assets/images/logo.png" alt="logo" />
       </router-link>
       <nav class="header-menu" v-show="!mobile">
-          <router-link to="/product/cart"><font-awesome-icon :icon="['fas', 'store']" /> 好運商品</router-link>
+          <router-link to="/product/index"><font-awesome-icon :icon="['fas', 'store']" /> 好運商品</router-link>
           <router-link to="/about"><font-awesome-icon :icon="['fas', 'circle-info']" /> 關於好運</router-link>
           <router-link to="/login"><font-awesome-icon :icon="['fas', 'gear']" /> 好運管理員</router-link>
       </nav>
@@ -24,7 +24,7 @@
       </div>
       <transition name="mobile-nav">
         <nav class="mobile-menu" v-show="mobileNav">
-          <router-link to="/product/cart"><font-awesome-icon :icon="['fas', 'store']" /> 好運商品</router-link>
+          <router-link to="/product/index"><font-awesome-icon :icon="['fas', 'store']" /> 好運商品</router-link>
           <router-link to="/about"><font-awesome-icon :icon="['fas', 'circle-info']" /> 關於好運</router-link>
           <router-link to="/login"><font-awesome-icon :icon="['fas', 'gear']" /> 好運管理員</router-link>
         </nav>
@@ -85,7 +85,7 @@ header {
   width: 100%;
   max-width: 300px;
   height: 100vh;
-  background-color: #3d7cfc;
+  background-color: #93a38a;
   top: 70px;
   left: 0;
   z-index: 1;

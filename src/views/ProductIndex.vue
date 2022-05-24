@@ -1,16 +1,16 @@
 <template>
-  <Header></Header>
-  <router-view />
-  <Footer></Footer>
-  <ToastMessages></ToastMessages>
-  
+  <Banner></Banner>
+  <Sale></Sale>
+  <SideCart></SideCart>
+  <Shop></Shop>  
 </template>
 
 <script>
 import Header from '@/components/Header.vue';
 import Banner from '@/components/Banner.vue';
 import Sale from '@/views/Sale.vue';
-import UserCart from '@/views/UserCart.vue';
+import SideCart from '@/components/SideCart.vue';
+import Shop from '@/components/Shop.vue';
 import Footer from '@/components/Footer.vue';
 import emitter from "../methods/emitter";
 import ToastMessages from "../components/ToastMessages.vue";
@@ -20,7 +20,8 @@ export default {
     Header,
     Banner,
     Sale,
-    UserCart,
+    SideCart,
+    Shop,
     Footer,
     ToastMessages,
   },
