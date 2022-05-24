@@ -173,6 +173,12 @@
       height: 50px;
       border: none;
       background-color: #d6d6ca;
+      svg{
+        transition: 0.3s;
+      }
+      &:hover svg{
+        transform: scale(1.7);
+      }
     }
     input{
       width: 250px;
