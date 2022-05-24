@@ -15,6 +15,7 @@
     </ol>
     <div class="box">
       <div class="banner">
+        <!-- Swiper下方小圖無法運作 -->
       <swiper
         :style="{
           '--swiper-navigation-color': '#fff',

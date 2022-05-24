@@ -1,4 +1,5 @@
 <template>
+            <!-- 打開LOADING畫面會卡住 -->
   <!-- <Loading :active="isLoading"></Loading> -->
   <div class="wrap">
     <div class="container">
@@ -10,7 +11,8 @@
           查看<br />購物車
         </button>
         <template v-for="i in cart.carts" :key="i.id">
-          <div class="icon-null" v-if="i.length === 0">來點好運</div>
+            <!-- 問題：length=0時不會顯示 -->
+          <div class="icon-null" v-if="cart.carts.length === 0">來點好運</div>
           <div class="icon-num" v-else>
             {{ cart.carts.length }}
           </div>

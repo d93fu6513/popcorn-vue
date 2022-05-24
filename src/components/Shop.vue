@@ -316,6 +316,7 @@ export default {
       this.$http.post(url, { data: cart }).then((res) => {
         this.status.loadingItem = "";
         this.$httpMessageState(res, '加入購物車');
+        // 加入購物車後不會自動更新，要另外重新整理
       });
     },
   },
