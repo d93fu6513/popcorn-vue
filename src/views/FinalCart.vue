@@ -1,4 +1,5 @@
 <template>
+<Loading :active="isLoading"></Loading>
   <div class="wrap">
     <div class="cart-container">
       <h2>購物車</h2>

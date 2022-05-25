@@ -11,6 +11,16 @@
   </div>
 </template>
 
+<style lang="scss" scoped>
+.toast,
+.toast-header,
+.toast-body{
+  background-color: white;
+  height: 100px;
+  font-size: 26px;
+}
+</style>
+
 <script>
 import Toast from 'bootstrap/js/dist/toast';
 export default {
@@ -21,7 +31,7 @@ export default {
   mounted() {
     const toastEl = this.$refs.toast;
     const toast = new Toast(toastEl, {
-      delay: 5000,
+      delay: 3000,
     });
     toast.show();
   },

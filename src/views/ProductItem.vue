@@ -7,7 +7,7 @@
         <router-link to="/">首頁</router-link>
       </li>
       <li>
-        <router-link to="/product/cart">好運商品</router-link>
+        <router-link to="/product/index">好運商品</router-link>
       </li>
       <li>
         {{ product.title }}
@@ -300,6 +300,17 @@ export default {
     SwiperSlide,
     SideCart,
     Qa,
+  },  
+  setup() {
+    let thumbsSwiper = null;
+    const setThumbsSwiper = (swiper) => {
+      thumbsSwiper = swiper;
+    };
+    return {
+      thumbsSwiper,
+      setThumbsSwiper,
+      modules: [Autoplay, FreeMode, Navigation, Thumbs],
+    };
   },
   data() {
     return {
@@ -340,23 +351,11 @@ export default {
         // 無法運作
         // this.isLoading = false;
         this.$httpMessageState(res, '加入購物車');
-        //無法自動更新購物車，要另外重新整理
+        //因為無法自動更新購物車，要另外重新整理，所以先跳回產品頁
         this.$router.push('/product/index');
       });
     },
-  },
-  setup() {
-    let thumbsSwiper = null;
-
-    const setThumbsSwiper = (swiper) => {
-      thumbsSwiper = swiper;
-    };
-
-    return {
-      modules: [Autoplay, FreeMode, Navigation, Thumbs],
-    };
-  },
-  
+  },  
   created() {
     this.id = this.$route.params.productId;
     this.getProduct();

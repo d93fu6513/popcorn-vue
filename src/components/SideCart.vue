@@ -1,5 +1,4 @@
 <template>
-            <!-- 打開LOADING畫面會卡住 -->
   <Loading :active="isLoading"></Loading>
   <div class="wrap">
     <div class="container">
