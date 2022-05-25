@@ -6,6 +6,8 @@
 
 <style lang="scss" scoped>
 .footerbody{
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   height: 100px;
   background-color: #93a38a;
   color: white;

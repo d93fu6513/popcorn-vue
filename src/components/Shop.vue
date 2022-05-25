@@ -116,6 +116,8 @@ img {
   vertical-align: middle;
 }
 .wrap {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   .container {
     margin: auto;
     max-width: 1200px;
@@ -239,6 +241,7 @@ img {
     }
 
     h3 {
+      font-weight: 500;
       font-size: 36px;
       margin: 20px 0;
       text-align: center;
@@ -250,6 +253,7 @@ img {
       color: #5c5e66;
     }
     h5 {
+      font-weight: 500;
       font-size: 26px;
       margin: 20px 0;
       text-align: center;
@@ -264,6 +268,7 @@ img {
   margin-bottom: 20px;
   .intro,
   .add-cart {
+    font-weight: 300;
     width: 150px;
     border: 1px solid #93a38a;
     border-radius: 5px;

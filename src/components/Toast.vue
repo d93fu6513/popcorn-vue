@@ -18,6 +18,8 @@
   background-color: white;
   height: 100px;
   font-size: 26px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   @media screen and (max-width: 768px) {
         height: 30px;
   font-size: 20px;

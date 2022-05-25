@@ -26,6 +26,8 @@
 
 <style lang="scss" scoped>
 .wrap {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   margin: 50px 0;
   @media screen and (max-width: 768px) {
       margin: 20px 0;
@@ -63,7 +65,9 @@
     align-items: center;
   }
   h2 {
+    font-weight: 500;
     font-size: 60px;
+    color: #5c5e66;
     margin-bottom: 20px;
     @media screen and (max-width: 768px) {
       font-size: 30px;
@@ -71,18 +75,20 @@
       margin: 20px 10px;
     }
   }
-  h3 {
+  h3 {    
     font-size: 48px;
     margin-bottom: 10px;
     text-align: center;
+    color: #5c5e66;
     @media screen and (max-width: 768px) {
       font-size: 20px;
       text-align: center;
     }
   }
   h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 26px;
+    margin-top: 10px;
     text-align: center;
     color: #93a38a;
     @media screen and (max-width: 768px) {
@@ -137,13 +143,13 @@
       height: 20px;
     }
   }
-  .coupon-left {
+  .coupon-left {    
     width: 100px;
     height: 100px;
     background-color: #5c5e66;
     font-size: 40px;
     text-align: center;
-    line-height: 50px;
+    line-height: 48px;
     color: white;
     margin-left: 40px;
     position: relative;
@@ -169,6 +175,7 @@
     }
   }
   .coupon-right {
+    font-family: 'Fredoka One', cursive;
     font-size: 40px;
     text-align: center;
     color: #5c5e66;
@@ -180,6 +187,7 @@
   }
 }
 button {
+  font-weight: 300;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,7 +196,7 @@ button {
   border: none;
   border-radius: 5px;
   background-color: #93a38a;
-  color: white;
+  color: white;  
   font-size: 30px;
   transition: 0.3s;
   @media screen and (max-width: 768px) {

@@ -14,6 +14,8 @@
 
 <style lang="scss" scoped>
 .banner2 {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
     background-image: url(../assets/images/banner2.png);
     width: 100%;
     height: 450px;
@@ -42,9 +44,9 @@
     }
     }
     h3 {
+      font-weight: 500;
         font-size: 40px;
         color: #d67675;
-        font-weight: 700;
         text-align: center;
         line-height: 60px;
     }
@@ -54,7 +56,6 @@
     a {
         font-size: 70px;
         color: #d67675;
-        font-weight: 700;
         text-decoration: none;
         padding: 20px 20px 0px 20px;
         transform: translateY(0);

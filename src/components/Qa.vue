@@ -52,6 +52,8 @@
 
 <style lang="scss" scoped>
 .wrap {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
     margin: 50px 0;
   @media screen and (max-width: 768px) {
       margin: 20px 0;

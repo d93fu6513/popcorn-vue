@@ -116,6 +116,8 @@ img {
   }
 }
 .wrap {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   margin-top: 150px;
   @media screen and (max-width: 768px) {
     margin-top: 100px;
@@ -257,6 +259,7 @@ img {
     }
     a,
     .check-out {
+      font-weight: 300;
       text-decoration: none;
       color: white;
       font-size: 22px;

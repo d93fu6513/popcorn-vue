@@ -86,6 +86,8 @@
 
 <style lang="scss" scoped>
 .product-container {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   padding-top: 150px;
   max-width: 1200px;
   width: 100%;
@@ -130,6 +132,7 @@
       margin: 10px 20px;
     }
   h2{
+    font-weight: 500;
     font-size: 38px;
     color: #5c5e66;
     position: relative;
@@ -151,6 +154,7 @@
     border-radius: 7px;
     margin-top: 40px;
     padding: 10px 0;
+    letter-spacing: 2px;
     @media screen and (max-width: 768px) {
       width: 100%;
     }
@@ -162,6 +166,7 @@
     line-height: 28px;
   }
   h5{
+    font-weight: 500;
     font-size: 38px;
     color: #d67675;
   }
@@ -190,6 +195,7 @@
     }
   }
   .add-cart {
+    font-weight: 300;
     width: 350px;
     border: 1px solid #93a38a;
     border-radius: 7px;

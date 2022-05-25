@@ -55,7 +55,7 @@
             <button type="button" @click="addCouponCode()">套用優惠碼</button>
           </div>
           <div class="price">
-            <h5>總計：${{ $filters.currency(cart.total) }}元</h5>
+            <h4>總計：${{ $filters.currency(cart.total) }}元</h4>
             <strong v-if="cart.final_total !== cart.total">
               折扣價：${{ $filters.currency(cart.final_total) }}元
             </strong>
@@ -80,6 +80,8 @@ img {
   }
 }
 .wrap {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   margin-top: 150px;
   @media screen and (max-width: 768px) {
     margin-top: 100px;
@@ -160,6 +162,7 @@ img {
       flex-direction: column;
     }
     h3 {
+      font-weight: 500;
       font-size: 26px;
       color: #949494;
       position: relative;
@@ -244,9 +247,11 @@ img {
         justify-content: center;
       }
       input {
+        font-weight: 300;
         width: 60%;
       }
       button {
+        font-weight: 300;
         margin-left: 10px;
         border: none;
         background-color: #d6d6ca;
@@ -260,9 +265,6 @@ img {
     }
     .price {
       display: flex;
-      font-size: 26px;
-      color: #949494;
-      text-align: right;
       @media screen and (max-width: 768px) {
         justify-content: center;
         text-align: center;

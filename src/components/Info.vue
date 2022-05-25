@@ -56,6 +56,8 @@ img {
   vertical-align: middle;
 }
 .wrap {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   .container {
     max-width: 1200px;
     width: 100%;
@@ -108,6 +110,7 @@ img {
           height: 10%;
         }
         h3 {
+          font-family: 'Fredoka One', cursive;
           font-size: 26px;
           padding-left: 20px;
           color: #5c5e66;
@@ -119,6 +122,7 @@ img {
         p {
           padding-bottom: 10px;
           color: #5c5e66;
+          letter-spacing: 1px;
         }
         & > :first-child svg{
           color: #d67675;

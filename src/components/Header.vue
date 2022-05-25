@@ -39,6 +39,7 @@ header {
   position: fixed;
   top: 0px;
   z-index: 2;
+  font-family: 'Noto Sans TC:wght@100', sans-serif;
 }
 .header-container {
   background-color: #93a38a;

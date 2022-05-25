@@ -73,6 +73,8 @@ img {
   vertical-align: middle;
 }
 .wrap {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
   .container {
     margin: auto;
     max-width: 1200px;
@@ -170,6 +172,7 @@ img {
     margin: 50px 20px;
   }
   h2 {
+    font-weight: 500;
     font-size: 32px;
     color: white;
     position: relative;
@@ -191,7 +194,7 @@ img {
     top: 50%;
     right: 340px;
     width: 60px;
-    height: 120px;
+    height: 80px;
     font-size: 60px;
     background-color: #93a38a;
     color: white;
@@ -219,7 +222,7 @@ img {
       width: 60%;
       align-items: center;
       h3 {
-        font-size: 34px;
+            font-size: 26px;
         color: white;
         margin-top: 10px;
       }
@@ -240,11 +243,11 @@ img {
     }
   }
   h4 {
-    font-size: 26px;
+    font-size: 20px;
     color: #485741;
   }
   h5 {
-    font-size: 18px;
+    font-size: 20px;
     color: #5c5e66;
     padding-right: 10px;
   }
@@ -263,10 +266,10 @@ img {
       border-bottom: 3px solid #bec8b9;
     }
   }
-  .cart-checkout {
+  .cart-checkout {    
     border: none;
     border-radius: 10px;
-    font-size: 26px;
+    font-size: 20px;
     background-color: #d67675;
     transition: 0.3s;
     text-align: center;
