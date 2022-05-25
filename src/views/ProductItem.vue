@@ -331,14 +331,14 @@ export default {
     addToCart(id) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       // 無法運作
-      // this.status.loadingItem = id; 
+      // this.isLoading = true; 
       const cart = {
         product_id: id,
         qty: this.count,
       };
       this.$http.post(url, { data: cart }).then((res) => {
         // 無法運作
-        // this.status.loadingItem = "";
+        // this.isLoading = false;
         this.$httpMessageState(res, '加入購物車');
         //無法自動更新購物車，要另外重新整理
       });

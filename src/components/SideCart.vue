@@ -1,6 +1,6 @@
 <template>
             <!-- 打開LOADING畫面會卡住 -->
-  <!-- <Loading :active="isLoading"></Loading> -->
+  <Loading :active="isLoading"></Loading>
   <div class="wrap">
     <div class="container">
       <div class="sideicon">
@@ -48,16 +48,18 @@
                 :disabled="status.loadingItem === item.id"
                 @click="removeCartItem(item.id)"
               >
-                <i class="bi bi-trash3"></i>
+                <font-awesome-icon :icon="['fas', 'trash-can']" />
               </button>
             </div>
             <div class="cart-footer">
               <h5>小計</h5>
               <h4>${{ $filters.currency(cart.total) }}元</h4>
             </div>
-            <button class="cart-checkout">
-              <i class="bi bi-cart"></i> 結帳
-            </button>
+            <div class="cart-checkout">
+              <router-link to="/finalcart">
+              <font-awesome-icon :icon="['fas', 'cart-shopping']" /> 結帳
+              </router-link>
+            </div>
           </div>
         </div>
       </transition>
@@ -182,7 +184,7 @@ img {
       border-bottom: 3px solid #bec8b9;
     }
   }
-  a {
+  .cart-header a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -263,14 +265,17 @@ img {
     }
   }
   .cart-checkout {
-    width: 100%;
-    height: 50px;
     border: none;
     border-radius: 10px;
     font-size: 26px;
     background-color: #d67675;
-    color: white;
     transition: 0.3s;
+    text-align: center;
+    padding: 10px 0;
+    a{
+      text-decoration: none;
+      color: white;
+    }
     &:hover {
       transform: scale(1.05);
     }
@@ -313,17 +318,16 @@ export default {
       this.isLoading = true;
       this.$http.get(url).then((res) => {
         this.cart = res.data.data;
+        this.isLoading = false;
       });
     },
     removeCartItem(id) {
       this.status.loadingItem = id;
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
-      this.isLoading = true;
-      this.$http.delete(url).then((res) => {
+        this.$http.delete(url).then((res) => {
         this.$httpMessageState(res, "移除購物車品項");
         this.status.loadingItem = "";
         this.getCart();
-        this.isLoading = false;
       });
     },
   },

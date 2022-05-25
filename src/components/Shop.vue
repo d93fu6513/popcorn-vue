@@ -2,8 +2,7 @@
   <Loading :active="isLoading"></Loading>
   <div class="wrap">
     <div class="container">
-      <h2>好運商品</h2>
-      
+      <h2>好運商品</h2>      
       <div class="shopnav">
         <a
           href=""
@@ -306,22 +305,33 @@ export default {
     getProduct(id) { //查看更多
       this.$router.push(`/product/product/${id}`);
     },
-    addCart(id) { //加入購物車
+    getCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.status.loadingItem = id;
+      this.isLoading = true;
+      this.$http.get(url).then((res) => {
+        this.cart = res.data.data;
+        this.isLoading = false;
+      });
+    },
+    addCart(id) { //加入購物車
       const cart = {
         product_id: id,
         qty: 1,
       };
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      //開了會轉不停
+      // this.status.loadingItem = id;
       this.$http.post(url, { data: cart }).then((res) => {
-        this.status.loadingItem = "";
+        // this.status.loadingItem = "";
         this.$httpMessageState(res, '加入購物車');
         // 加入購物車後不會自動更新，要另外重新整理
+        this.getCart();
       });
     },
   },
   created() {
     this.getProducts();
+    this.getCart();
   },
 };
 </script>

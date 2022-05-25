@@ -47,6 +47,10 @@ const routes = [
     path: '/about',
     component: () => import('../views/About.vue')
   },
+  {
+    path: '/finalcart',
+    component: () => import('../views/FinalCart.vue')
+  },
 ]
 
 const router = createRouter({
