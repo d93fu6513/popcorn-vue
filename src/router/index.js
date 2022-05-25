@@ -48,8 +48,22 @@ const routes = [
     component: () => import('../views/About.vue')
   },
   {
-    path: '/finalcart',
-    component: () => import('../views/FinalCart.vue')
+    path: '/final',
+    component: () => import('../views/FinalBoard.vue'),
+    children: [
+      {
+        path: 'cart',
+        component: () => import('../views/FinalCart.vue')
+      },
+      {
+        path: 'check',
+        component: () => import('../views/FinalCheck.vue')
+      },
+      {
+        path: 'checkout/:orderId',
+        component: () => import('../views/FinalCheckOut.vue')
+      },
+    ],
   },
 ]
 

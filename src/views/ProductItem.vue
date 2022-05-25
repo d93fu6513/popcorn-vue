@@ -341,6 +341,7 @@ export default {
         // this.isLoading = false;
         this.$httpMessageState(res, '加入購物車');
         //無法自動更新購物車，要另外重新整理
+        this.$router.push('/product/index');
       });
     },
   },

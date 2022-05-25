@@ -56,7 +56,7 @@
               <h4>${{ $filters.currency(cart.total) }}元</h4>
             </div>
             <div class="cart-checkout">
-              <router-link to="/finalcart">
+              <router-link to="/final/cart">
               <font-awesome-icon :icon="['fas', 'cart-shopping']" /> 結帳
               </router-link>
             </div>

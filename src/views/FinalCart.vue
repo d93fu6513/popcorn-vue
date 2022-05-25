@@ -1,5 +1,4 @@
 <template>
-  <Header></Header>
   <div class="wrap">
     <div class="cart-container">
       <h2>購物車</h2>
@@ -44,7 +43,7 @@
             <font-awesome-icon :icon="['fas', 'trash-can']" />
           </button>
         </div>
-        <div class="cart-footer">
+        <div class="box-footer">
           <div class="coupon">
             <input
               type="text"
@@ -61,14 +60,13 @@
             </strong>
           </div>
         </div>
-        <div class="next">
+        <div class="cart-footer">
           <router-link to="/product/index">繼續購物</router-link>
-          <a href="">下一步</a>
+          <router-link to="/final/check">下一步</router-link>
         </div>
       </div>
     </div>
   </div>
-  <Footer></Footer>
 </template>
 
 <style lang="scss" scoped>
@@ -77,8 +75,8 @@ img {
   height: auto;
   vertical-align: middle;
   @media screen and (max-width: 768px) {
-      width: 100%;
-    }
+    width: 100%;
+  }
 }
 .wrap {
   margin-top: 150px;
@@ -140,25 +138,25 @@ img {
         padding: 10px;
         border-radius: 0px;
       }
-    }
-    li:first-child {
-      background-color: #93a38a;
+      &:first-child {
+        background-color: #93a38a;
+      }
     }
   }
   .cart-body {
     margin-top: 40px;
     @media screen and (max-width: 768px) {
-        margin: 40px 10px 0 10px;
-      }
+      margin: 40px 10px 0 10px;
+    }
   }
   .box {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #e9f0f3;
     margin: 10px 0;
     @media screen and (max-width: 768px) {
-        flex-direction: column;
+      flex-direction: column;
     }
     h3 {
       font-size: 26px;
@@ -168,7 +166,7 @@ img {
       text-align: center;
       @media screen and (max-width: 768px) {
         margin: 10px 0;
-    }
+      }
     }
     h4 {
       font-size: 26px;
@@ -178,7 +176,7 @@ img {
       text-align: center;
       @media screen and (max-width: 768px) {
         margin: 10px 0;
-    }
+      }
     }
     small {
       font-size: 16px;
@@ -216,19 +214,20 @@ img {
       font-size: 20px;
       color: #d67675;
       transition: 0.3s;
+      margin-right: 30px;
       &:hover {
         transform: scale(1.1);
       }
     }
   }
-  .cart-footer {
+  .box-footer {
     display: flex;
     justify-content: space-between;
     position: relative;
     margin: 40px 0;
     @media screen and (max-width: 768px) {
-        flex-direction: column;
-        margin: 40px 0 0 0;
+      flex-direction: column;
+      margin: 40px 0 0 0;
     }
     &:before {
       content: "";
@@ -242,7 +241,7 @@ img {
       display: flex;
       @media screen and (max-width: 768px) {
         justify-content: center;
-    }
+      }
       input {
         width: 60%;
       }
@@ -264,24 +263,25 @@ img {
       color: #949494;
       text-align: right;
       @media screen and (max-width: 768px) {
-          justify-content: center;
+        justify-content: center;
         text-align: center;
         margin: 10px 5px;
         font-size: 22px;
-    }
+      }
       strong {
         color: #d67675;
         margin-left: 30px;
       }
     }
   }
-  .next {
+  .cart-footer {
     display: flex;
     justify-content: center;
     margin: auto;
+    padding-bottom: 30px;
     @media screen and (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
     }
     a {
       text-decoration: none;
@@ -296,7 +296,7 @@ img {
       transition: 0.3s;
       @media screen and (max-width: 768px) {
         margin: 10px 0 0 0;
-    }
+      }
       &:hover {
         transform: scale(1.1);
       }
@@ -309,14 +309,7 @@ img {
 </style>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
-
 export default {
-  components: {
-    Header,
-    Footer,
-  },
   data() {
     return {
       products: [],
