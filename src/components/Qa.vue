@@ -97,7 +97,7 @@
     background-color: #d6d6ca;
     border-radius: 10px;
     cursor: pointer;
-    transition: .3s;
+    transition: .3s ease-in-out;
     &:hover{
         transform: scale(1.02);
     }
@@ -111,7 +111,7 @@
 }
 .v-enter-active,
 .v-leave-active {
-  transition: all 0.5s ease;
+  transition: .5s ease-in-out;
 }
 
 .v-enter-from {

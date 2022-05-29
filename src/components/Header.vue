@@ -42,16 +42,16 @@ header {
   font-family: 'Noto Sans TC:wght@100', sans-serif;
 }
 .header-container {
+  background-color: #93a38a;
   display: flex;
   position: relative;
   height: 120px;
-  @media screen and (max-width: 768px) {
-    background-color: #93a38a;    
+  transition: 0.3s ease-in-out;
+  @media screen and (max-width: 768px) {    
     height: 70px;
   }
 }
 .header-container-scrolled {
-  background-color: #93a38a;    
   height: 70px;
 }
 .logo {
@@ -69,7 +69,7 @@ header {
     margin-left: 20px;
     font-size: 22px;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
     padding: 12px 20px;
     border-radius: 4px;
     &:hover {
@@ -169,7 +169,7 @@ header {
 
 .mobile-nav-enter-active,
 .mobile-nav-leave-active {
-  transition: 0.5s;
+  transition: 0.5s ease-in-out;
 }
 
 .mobile-nav-enter-from,

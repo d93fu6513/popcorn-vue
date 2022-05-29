@@ -183,7 +183,7 @@ img {
     font-size: 28px;
     color: #93a38a;
     position: relative;
-    transition: 0.5s;
+    transition: .5s ease-in-out;
     text-decoration: none;
     letter-spacing: 20px;
     @media screen and (max-width: 768px) {
@@ -248,7 +248,7 @@ img {
     overflow: hidden;
     box-shadow: 0 0 5px #93a38a;
     border-radius: 5px;
-    transition: 0.3s;
+    transition: .3s ease-in-out;
     @media screen and (max-width: 768px) {
       width: 100%;
       margin: 0 0 20px 0;
@@ -257,7 +257,7 @@ img {
       box-shadow: 0 0 10px #93a38a;
     }
     img {
-      transition: 0.5s;
+      transition: .5s ease-in-out;
       &:hover {
         transform: scale(1.05);
       }
@@ -298,7 +298,7 @@ img {
     background-color: transparent;
     color: #93a38a;
     font-size: 20px;
-    transition: 0.5s;
+    transition: .5s ease-in-out;
     &:hover {
       background-color: #93a38a;
       color: white;

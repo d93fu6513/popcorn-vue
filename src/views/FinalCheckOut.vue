@@ -208,7 +208,7 @@ img {
       text-align: center;
       padding: 20px 0;
       margin-left: 30px;
-      transition: 0.3s;
+      transition: .3s ease-in-out;
       @media screen and (max-width: 768px) {
         margin: 10px 0 0 0;
       }

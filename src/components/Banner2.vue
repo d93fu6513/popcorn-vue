@@ -59,7 +59,7 @@
         text-decoration: none;
         padding: 20px 20px 0px 20px;
         transform: translateY(0);
-        transition: .6s;
+        transition: .6s ease-in-out;
         i {
             padding-right: 10px;
         }

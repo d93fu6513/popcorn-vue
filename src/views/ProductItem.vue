@@ -15,57 +15,43 @@
     </ol>
     <div class="box">
       <div class="banner">
-        <!-- Swiper下方小圖無法運作 -->
-      <swiper
-        :style="{
-          '--swiper-navigation-color': '#fff',
-          '--swiper-pagination-color': '#fff',
-        }"
-        :spaceBetween="10"
-        :navigation="true"
-        :thumbs="{ swiper: thumbsSwiper }"
-        :modules="modules"
-        :autoplay="{
-          delay: 2500,
+      <Swiper
+          :style="{'--swiper-navigation-color': '#fff','--swiper-pagination-color': '#fff'}"
+          :loop="false"
+          
+          :thumbs="{ swiper: thumbsSwiper }"
+          :navigation="true"
+          :autoplay="{
+          delay: 3500,
           disableOnInteraction: false,
         }"
-        class="mySwiper2"
-      >
-        <swiper-slide>
-          <img :src="product.imageUrl" />
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="product.images" />
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="product.images" />
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="product.images" />
-        </swiper-slide>
-      </swiper>
-      <swiper
-        @swiper="setThumbsSwiper"
-        :spaceBetween="10"
-        :slidesPerView="4"
-        :freeMode="true"
-        :watchSlidesProgress="true"
-        :modules="modules"
-        class="mySwiper"
-      >
-        <swiper-slide>
-          <img :src="product.imageUrl" />
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="product.images" />
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="product.images" />
-        </swiper-slide>
-        <swiper-slide>
-          <img :src="product.images" />
-        </swiper-slide>
-      </swiper>
+          :direction="'horizontal'"
+          class="mySwiper2"
+        >
+          <SwiperSlide>
+            <img :src="product.imageUrl" :alt="product.title" class="img-fluid">
+          </SwiperSlide>
+          <SwiperSlide v-for="(image , key) in product.images" :key="image">
+            <img :src="image" :alt="`${product.title} ${key}`" class="img-fluid">
+          </SwiperSlide>
+        </Swiper>
+        <Swiper
+          @swiper="setThumbsSwiper"
+          :loop="false"
+          :slidesPerView="4"
+          :spaceBetween="10"
+          :watchSlidesVisibility="true"
+          :watchSlidesProgress="true"
+          :direction="'horizontal'"
+          class="mySwiper"
+        >
+          <SwiperSlide>
+            <img :src="product.imageUrl" :alt="product.title" class="img-fluid">
+          </SwiperSlide>
+          <SwiperSlide v-for="(image , key) in product.images" :key="image">
+            <img :src="image" :alt="`${product.title} ${key}`"  class="img-fluid">
+          </SwiperSlide>
+        </Swiper>
       </div>
       <div class="text">
         <h2>{{ product.title }}</h2>
@@ -180,7 +166,7 @@
       border: none;
       background-color: #d6d6ca;
       svg{
-        transition: 0.3s;
+        transition: 0.3s ease-in-out;
       }
       &:hover svg{
         transform: scale(1.7);
@@ -293,13 +279,13 @@
 <script>
 import SideCart from '@/components/SideCart.vue';
 import Qa from '@/components/Qa.vue';
-
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
+import 'swiper/scss/thumbs';
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
-import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper";
+import SwiperCore, { Navigation, Thumbs, Autoplay, Pagination } from 'swiper/core';
+SwiperCore.use([Navigation, Thumbs, Autoplay, Pagination]);
 export default {
   components: {
     Swiper,
@@ -307,25 +293,18 @@ export default {
     SideCart,
     Qa,
   },  
-  setup() {
-    let thumbsSwiper = null;
-    const setThumbsSwiper = (swiper) => {
-      thumbsSwiper = swiper;
-    };
-    return {
-      thumbsSwiper,
-      setThumbsSwiper,
-      modules: [Autoplay, FreeMode, Navigation, Thumbs],
-    };
-  },
   data() {
     return {
       product: {},
       id: "",
       count:1 ,
+      thumbsSwiper: null,
     };
   },
   methods: {
+    setThumbsSwiper(swiper) {
+      this.thumbsSwiper = swiper;
+    },
     plus(){
       this.count += 1;
     },

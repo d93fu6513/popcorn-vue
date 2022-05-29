@@ -198,7 +198,7 @@ button {
   background-color: #93a38a;
   color: white;  
   font-size: 30px;
-  transition: 0.3s;
+  transition: .3s ease-in-out;
   @media screen and (max-width: 768px) {
     margin-bottom: 20px;
   }

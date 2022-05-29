@@ -93,7 +93,7 @@ img {
 .sidecarticon,
 .sidecarticon-back {
   backface-visibility: hidden;
-  transition: 1s;
+  transition: 1s ease-in-out;
   position: fixed;
   right: -10px;
   bottom: 120px;
@@ -199,7 +199,7 @@ img {
     background-color: #93a38a;
     color: white;
     border-radius: 10px;
-    transition: 0.3s;
+    transition: .3s ease-in-out;
     &:hover {
       transform: scale(1.1);
     }
@@ -208,7 +208,7 @@ img {
     display: flex;
     background-color: rgba($color: white, $alpha: 0.3);
     margin-bottom: 10px;
-    transition: 0.3s;
+    transition: .3s ease-in-out;
     &:hover {
       transform: scale(1.02);
     }
@@ -236,7 +236,7 @@ img {
       background-color: transparent;
       border: none;
       color: #d67675;
-      transition: 0.3s;
+      transition: .3s ease-in-out;
       &:hover {
         transform: scale(1.1);
       }
@@ -271,7 +271,7 @@ img {
     border-radius: 10px;
     font-size: 20px;
     background-color: #d67675;
-    transition: 0.3s;
+    transition: .3s ease-in-out;
     text-align: center;
     padding: 10px 0;
     a{
@@ -285,7 +285,7 @@ img {
 }
 .sideCart-enter-active,
 .sideCart-leave-active {
-  transition: 0.5s;
+  transition: .5s ease-in-out;
 }
 
 .sideCart-enter-from,

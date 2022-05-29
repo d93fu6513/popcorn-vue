@@ -196,7 +196,7 @@ img {
         border: none;
         background-color: #d6d6ca;
         svg {
-          transition: 0.3s;
+          transition: .3s ease-in-out;
           color: #949494;
         }
         &:hover svg {
@@ -217,7 +217,7 @@ img {
       border: none;
       font-size: 20px;
       color: #d67675;
-      transition: 0.3s;
+      transition: .3s ease-in-out;
       margin-right: 30px;
       &:hover {
         transform: scale(1.1);
@@ -256,7 +256,7 @@ img {
         border: none;
         background-color: #d6d6ca;
         color: #949494;
-        transition: 0.3s;
+        transition: .3s ease-in-out;
         border-radius: 3px;
         &:hover {
           transform: scale(1.1);
@@ -296,7 +296,7 @@ img {
       text-align: center;
       padding: 20px 0;
       margin-left: 30px;
-      transition: 0.3s;
+      transition: .3s ease-in-out;
       @media screen and (max-width: 768px) {
         margin: 10px 0 0 0;
       }

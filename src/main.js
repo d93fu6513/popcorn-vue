@@ -19,6 +19,7 @@ import AOS from "aos";
 import "../node_modules/aos/dist/aos.css";
 
 
+
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTrashCan, faMinus, faPlus, faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck } from "@fortawesome/free-solid-svg-icons";
