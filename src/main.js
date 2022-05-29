@@ -15,6 +15,8 @@ import { Field, Form, ErrorMessage, defineRule, configure, } from 'vee-validate'
 import AllRules from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
+import AOS from "aos";
+import "../node_modules/aos/dist/aos.css";
 
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -41,16 +43,19 @@ setLocale('zh_TW');
 // 此函式的用途是整合 Ajax 的錯誤事件，統一整理發送給予 Toast 處理
 app.config.globalProperties.$httpMessageState = $httpMessageState;
 
+
+app.AOS=new AOS.init({ });
+
 app.use(VueAxios, axios) //app.use安裝插件
 app.use(router)
 app.use(MenuIcon)
 app.use(VueClipboard)
 app.use(animated)
+app.use(AOS)
 app.component("font-awesome-icon", FontAwesomeIcon)
 app.component('Loading', Loading) //app.component註冊全域元件
 app.component('Form', Form);
 app.component('Field', Field);
 app.component('ErrorMessage', ErrorMessage);
-
 
 app.mount('#app')
