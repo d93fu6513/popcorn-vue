@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap wow slideInLeft">
+  <div class="wrap animate__animated animate__fadeInLeft">
     <div class="container">
       <img src="../assets/images/salePic.png" alt="" />
       <div class="text-container">

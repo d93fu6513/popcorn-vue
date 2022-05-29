@@ -2,7 +2,7 @@
   <Loading :active="isLoading"></Loading>
   <div class="wrap">
     <div class="container">
-      <h2>好運商品</h2>      
+      <h2>好運商品</h2>
       <div class="shopnav">
         <a
           href=""
@@ -31,92 +31,116 @@
       </div>
       <div class="shopbody">
         <template v-for="item in products" :key="item.id">
-          <div
-            class="item"
-            v-show="item.category === '經典款'"
-            v-if="link === '經典款'"
+          <transition
+            mode="out-in"
+            enter-active-class="animate__animated animate__zoomIn animate__fast"
+            leave-active-class="animate__animated animate__zoomOut animate__fast"
           >
-            <a href="" @click.prevent="getProduct(item.id)"
-              ><img :src="item.imageUrl" alt=""
-            /></a>
-            <h3>{{ item.title }}</h3>
-            <h4>{{ item.description }}</h4>
-            <h5>${{ item.price }}元</h5>
-            <div class="shopfooter">
-              <button type="button" class="intro" @click="getProduct(item.id)">
-                <font-awesome-icon :icon="['fas', 'magnifying-glass']" /> 查看更多
-              </button>
-              <button
-                type="button"
-                class="add-cart"
-                :disabled="status.loadingItem === item.id"
-                @click="addCart(item.id)"
-              >
-                <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
-              </button>
+            <div
+              class="item"
+              v-show="item.category === '經典款'"
+              v-if="link === '經典款'"
+            >
+              <a href="" @click.prevent="getProduct(item.id)"
+                ><img :src="item.imageUrl" alt=""
+              /></a>
+              <h3>{{ item.title }}</h3>
+              <h4>{{ item.description }}</h4>
+              <h5>${{ item.price }}元</h5>
+              <div class="shopfooter">
+                <button
+                  type="button"
+                  class="intro"
+                  @click="getProduct(item.id)"
+                >
+                  <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                  查看更多
+                </button>
+                <button
+                  type="button"
+                  class="add-cart"
+                  :disabled="status.loadingItem === item.id"
+                  @click="addCart(item.id)"
+                >
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
+                </button>
+              </div>
             </div>
-          </div>
-          <div
-            class="item"
-            v-show="item.category === '露營款'"
-            v-else-if="link === '露營款'"
-          >
-            <a href="" @click.prevent="getProduct(item.id)"><img :src="item.imageUrl" alt="" /></a>
-            <h3>{{ item.title }}</h3>
-            <h4>{{ item.description }}</h4>
-            <h5>${{ item.price }}元</h5>
-            <div class="shopfooter">
-              <button type="button" class="intro" @click="getProduct(item.id)">
-                <font-awesome-icon :icon="['fas', 'magnifying-glass']" /> 查看更多
-              </button>
-              <button
-                type="button"
-                class="add-cart"
-                :disabled="status.loadingItem === item.id"
-                @click="addCart(item.id)"
-              >
-                <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
-              </button>
+            <div
+              class="item"
+              v-show="item.category === '露營款'"
+              v-else-if="link === '露營款'"
+            >
+              <a href="" @click.prevent="getProduct(item.id)"
+                ><img :src="item.imageUrl" alt=""
+              /></a>
+              <h3>{{ item.title }}</h3>
+              <h4>{{ item.description }}</h4>
+              <h5>${{ item.price }}元</h5>
+              <div class="shopfooter">
+                <button
+                  type="button"
+                  class="intro"
+                  @click="getProduct(item.id)"
+                >
+                  <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                  查看更多
+                </button>
+                <button
+                  type="button"
+                  class="add-cart"
+                  :disabled="status.loadingItem === item.id"
+                  @click="addCart(item.id)"
+                >
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
+                </button>
+              </div>
             </div>
-          </div>
-          <div
-            class="item"
-            v-show="item.category === '限量款'"
-            v-else-if="link === '限量款'"
-          >
-            <a href="" @click.prevent="getProduct(item.id)"><img :src="item.imageUrl" alt="" /></a>
-            <h3>{{ item.title }}</h3>
-            <h4>{{ item.description }}</h4>
-            <h5>${{ item.price }}元</h5>
-            <div class="shopfooter">
-              <button type="button" class="intro" @click="getProduct(item.id)">
-                <font-awesome-icon :icon="['fas', 'magnifying-glass']" /> 查看更多
-              </button>
-              <button
-                type="button"
-                class="add-cart"
-                :disabled="status.loadingItem === item.id"
-                @click="addCart(item.id)"
-              >
-                <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
-              </button>
+            <div
+              class="item"
+              v-show="item.category === '限量款'"
+              v-else-if="link === '限量款'"
+            >
+              <a href="" @click.prevent="getProduct(item.id)"
+                ><img :src="item.imageUrl" alt=""
+              /></a>
+              <h3>{{ item.title }}</h3>
+              <h4>{{ item.description }}</h4>
+              <h5>${{ item.price }}元</h5>
+              <div class="shopfooter">
+                <button
+                  type="button"
+                  class="intro"
+                  @click="getProduct(item.id)"
+                >
+                  <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                  查看更多
+                </button>
+                <button
+                  type="button"
+                  class="add-cart"
+                  :disabled="status.loadingItem === item.id"
+                  @click="addCart(item.id)"
+                >
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
+                </button>
+              </div>
             </div>
-          </div>
+          </transition>
         </template>
       </div>
     </div>
   </div>
-  
 </template>
 
 <style lang="scss" scoped>
 img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 356px;
   vertical-align: middle;
 }
 .wrap {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   font-weight: 300;
   .container {
     margin: auto;
@@ -129,12 +153,12 @@ img {
       position: relative;
       margin-bottom: 50px;
       text-align: center;
-      &:after{
-        content: '';
+      &:after {
+        content: "";
         width: 200px;
         border-bottom: 5px dotted #93a38a;
         position: absolute;
-        bottom:-50%;
+        bottom: -50%;
         left: 50%;
         transform: translate(-50%, -50%);
       }
@@ -220,7 +244,6 @@ img {
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: 100%;
     margin: 10px;
     overflow: hidden;
     box-shadow: 0 0 5px #93a38a;
@@ -282,7 +305,6 @@ img {
     }
   }
 }
-
 </style>
 
 <script>
@@ -307,7 +329,8 @@ export default {
         this.products = res.data.products;
       });
     },
-    getProduct(id) { //查看更多
+    getProduct(id) {
+      //查看更多
       this.$router.push(`/product/product/${id}`);
     },
     getCart() {
@@ -318,7 +341,8 @@ export default {
         this.isLoading = false;
       });
     },
-    addCart(id) { //加入購物車
+    addCart(id) {
+      //加入購物車
       const cart = {
         product_id: id,
         qty: 1,
@@ -328,7 +352,7 @@ export default {
       // this.status.loadingItem = id;
       this.$http.post(url, { data: cart }).then((res) => {
         // this.status.loadingItem = "";
-        this.$httpMessageState(res, '加入購物車');
+        this.$httpMessageState(res, "加入購物車");
         // 加入購物車後不會自動更新，要另外重新整理
         this.getCart();
       });
