@@ -4,7 +4,7 @@
     <Sale  data-aos="fade-right"></Sale>
     <SideCart></SideCart>
     <Shop></Shop>
-    <Banner2  data-aos="fade-right" data-aos-duration="1500"></Banner2>
+    <Banner2  data-aos="fade-right" data-aos-duration="1500" ></Banner2>
     <Info  data-aos="zoom-in-up" data-aos-duration="1500"></Info>
     <Qa></Qa>
     <Footer></Footer>

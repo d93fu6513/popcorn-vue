@@ -42,15 +42,16 @@ header {
   font-family: 'Noto Sans TC:wght@100', sans-serif;
 }
 .header-container {
-  background-color: #93a38a;
   display: flex;
   position: relative;
   height: 120px;
-  @media screen and (max-width: 768px) {    
+  @media screen and (max-width: 768px) {
+    background-color: #93a38a;    
     height: 70px;
   }
 }
 .header-container-scrolled {
+  background-color: #93a38a;    
   height: 70px;
 }
 .logo {
