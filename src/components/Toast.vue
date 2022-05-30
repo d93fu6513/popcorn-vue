@@ -1,17 +1,37 @@
 <template>
-  <div class="toast" ref="toast">
-    <div class="toast-header">
-      <span :class="`bg-${msg.style}`" class="p-2 rounded me-2 d-inline-block"></span>
-      <strong class="me-auto">{{ msg.title }}</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body" v-if="msg.content">
-      {{ msg.content }}
+  <div
+    class="toast align-items-center"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    ref="toast">
+    <div class="d-flex">
+      <div class="toast-body d-flex align-items-center" :class="`text-${msg.style}`">
+        <i
+          class="bi me-3"
+          :class="msg.style === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-circle-fill'"></i>
+        {{ msg.content || msg.title }}
+      </div>
+      <button
+        type="button"
+        class="btn-close m-auto"
+        data-bs-dismiss="toast"
+        aria-label="Close"></button>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.toast,
+.toast-header,
+.toast-body{
+  width: 300px;
+  height: 100px;
+  font-size: 18px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
 </style>
 
 <script>
@@ -24,7 +44,7 @@ export default {
   mounted() {
     const toastEl = this.$refs.toast;
     const toast = new Toast(toastEl, {
-      delay: 3000,
+      delay: 10000,
     });
     toast.show();
   },

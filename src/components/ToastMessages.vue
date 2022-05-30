@@ -9,8 +9,9 @@
 <style lang="scss" scoped>
   .toastcontainer{
     position: fixed;
-    bottom: 0;
-    right: 0;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 3;
   }
 </style>
