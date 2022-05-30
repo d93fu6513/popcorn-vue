@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <div class="container">
-      <h2>關於好運</h2>
+      <h2 v-motion-slide-visible-top :delay="200">關於好運</h2>
       <div class="aboutbody">
         <div class="item" v-motion-slide-visible-left :delay="200">
           <div class="itemhead">
