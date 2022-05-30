@@ -1,11 +1,11 @@
 <template>
     <Header></Header>
     <Banner></Banner>
-    <Sale  data-aos="fade-right"></Sale>
+    <Sale  v-motion-slide-visible-left :delay="200"></Sale>
     <SideCart></SideCart>
     <Shop></Shop>
-    <Banner2  data-aos="fade-right" data-aos-duration="1500" ></Banner2>
-    <Info  data-aos="zoom-in-up" data-aos-duration="1500"></Info>
+    <Banner2  v-motion-fade-visible :delay="200"></Banner2>
+    <Info></Info>
     <Qa></Qa>
     <Footer></Footer>
     <ToastMessages></ToastMessages>

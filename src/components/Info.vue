@@ -3,7 +3,7 @@
     <div class="container">
       <h2>關於好運</h2>
       <div class="aboutbody">
-        <div class="item">
+        <div class="item" v-motion-slide-visible-left :delay="200">
           <div class="itemhead">
             <img src="../assets/images/about1-1.png" alt="" srcset="" />
             
@@ -22,7 +22,7 @@
             <p><font-awesome-icon :icon="['fas', 'check']" /> 美國進口焦糖</p>
           </div>
         </div>
-        <div class="item">
+        <div class="item" v-motion-slide-visible-right :delay="300">
           <div class="itemhead">
             <img src="../assets/images/about1-1.png" alt="" srcset="" />
             <h3>luckypopcorn</h3>
