@@ -16,6 +16,7 @@
 .toast-header,
 .toast-body{
   background-color: white;
+  width: 100%;
   height: 100px;
   font-size: 26px;
   font-family: 'Noto Sans TC', sans-serif;

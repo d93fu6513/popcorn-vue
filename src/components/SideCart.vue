@@ -11,7 +11,7 @@
         </button>
         <template v-for="i in cart.carts" :key="i.id">
             <!-- 問題：length=0時不會顯示 -->
-          <div class="icon-null" v-if="cart.carts.length === 0">來點好運</div>
+          <div class="icon-null" v-if="cart.length = 0">來點好運</div>
           <div class="icon-num" v-else>
             {{ cart.carts.length }}
           </div>
@@ -26,14 +26,16 @@
                 <font-awesome-icon :icon="['fas', 'cart-shopping']" />
                 好運購物車
               </h2>
-              <a href="" @click.prevent="tooglesideCart"
+              <a href="#" @click.prevent="tooglesideCart"
                 ><i class="bi bi-x"></i
               ></a>
             </div>
+            <!-- <h3 v-if="cart.length == 0">購物車目前空空的</h3> -->
             <div class="cart-item" v-for="item in cart.carts" :key="item.id">
               <div class="cart-photo">
                 <img :src="item.product.imageUrl" alt="" />
               </div>
+                
               <div class="cart-text">
                 <h3>{{ item.product.title }}</h3>
                 <div class="num">
@@ -44,7 +46,6 @@
               <button
                 type="button"
                 class="cart-del"
-                :disabled="status.loadingItem === item.id"
                 @click="removeCartItem(item.id)"
               >
                 <font-awesome-icon :icon="['fas', 'trash-can']" />
@@ -113,6 +114,7 @@ img {
   }
 }
 .sidecarticon-back {
+  font-weight: 300;
   font-size: 22px;
   background-color: #d67675;
   border-radius: 50%;

@@ -17,8 +17,7 @@
       <div class="banner">
       <Swiper
           :style="{'--swiper-navigation-color': '#fff','--swiper-pagination-color': '#fff'}"
-          :loop="false"
-          
+          :loop="false"          
           :thumbs="{ swiper: thumbsSwiper }"
           :navigation="true"
           :autoplay="{
@@ -253,6 +252,7 @@
   height: 100px;
   box-sizing: border-box;
   padding: 10px 0;
+  cursor: pointer;
 }
 
 .mySwiper .swiper-slide {
