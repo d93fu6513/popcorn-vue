@@ -9,8 +9,8 @@
 <style lang="scss" scoped>
   .toastcontainer{
     position: fixed;
-    bottom: 50%;
-    left: 0;
+    bottom: 0;
+    right: 0;
     z-index: 3;
   }
 </style>
