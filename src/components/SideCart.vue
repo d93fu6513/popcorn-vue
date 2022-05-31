@@ -11,13 +11,12 @@
         </button>
         <template v-for="i in cart.carts" :key="i.id">
             <!-- 問題：length=0時不會顯示 -->
-          <div class="icon-null" v-if="cart.length = 0">來點好運</div>
+          <div class="icon-null" v-if="cart.carts.length == 0">來點好運</div>
           <div class="icon-num" v-else>
             {{ cart.carts.length }}
           </div>
         </template>
       </div>
-      <!-- 購物車列表 -->
       <transition name="sideCart">
         <div class="cart-wrap" v-show="sideCart">
           <div class="cart-container">
@@ -46,6 +45,7 @@
               <button
                 type="button"
                 class="cart-del"
+                :disabled="status.loadingItem === item.id"
                 @click="removeCartItem(item.id)"
               >
                 <font-awesome-icon :icon="['fas', 'trash-can']" />

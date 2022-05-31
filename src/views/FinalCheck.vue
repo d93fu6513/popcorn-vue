@@ -327,6 +327,9 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
       const order = this.form;
       this.$http.post(url, { data: order }).then((res) => {
+        this.$httpMessageState(res, '送出訂單');
+        const orderId = res.data.orderId
+        this.$router.push(`./checkout/${orderId}`);
       });
     },
   },

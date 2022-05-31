@@ -348,10 +348,9 @@ export default {
         qty: 1,
       };
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      //開了會轉不停
-      // this.status.loadingItem = id;
+      this.status.loadingItem = id;
       this.$http.post(url, { data: cart }).then((res) => {
-        // this.status.loadingItem = "";
+        this.status.loadingItem = "";
         this.$httpMessageState(res, "加入購物車");
         // 加入購物車後不會自動更新，要另外重新整理
         this.getCart();
