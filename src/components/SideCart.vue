@@ -9,13 +9,11 @@
         <button class="sidecarticon-back" @click="tooglesideCart">
           查看<br />購物車
         </button>
-        <template v-for="i in cart.carts" :key="i.id">
           <!-- 問題：length=0時不會顯示 -->
-          <div class="icon-null" v-if="cart.carts.length == 0">來點好運</div>
-          <div class="icon-num" v-else>
-            {{ cart.carts.length }}
+          <div class="icon-num" v-if="cartLen !== 0">
+            {{ cartLen }}
           </div>
-        </template>
+          <div class="icon-null" v-else>來點好運</div>
       </div>
       <transition name="sideCart">
         <div class="cart-wrap" v-show="sideCart">
@@ -29,12 +27,11 @@
                 ><i class="bi bi-x"></i
               ></a>
             </div>
-            <!-- <h3 v-if="cart.length == 0">購物車目前空空的</h3> -->
+            <h3 v-if="cartLen === 0">購物車目前空空的</h3>
             <div class="cart-item" v-for="item in cart.carts" :key="item.id">
               <div class="cart-photo">
                 <img :src="item.product.imageUrl" alt="" />
               </div>
-
               <div class="cart-text">
                 <h3>{{ item.product.title }}</h3>
                 <div class="num">
@@ -55,7 +52,7 @@
               <h4>小計</h4>
               <h5>${{ $filters.currency(cart.total) }}元</h5>
             </div>
-            <div class="cart-checkout">
+            <div class="cart-checkout" v-if="cartLen !== 0">
               <router-link to="/final/cart">
                 <font-awesome-icon :icon="['fas', 'cart-shopping']" /> 結帳
               </router-link>
@@ -68,6 +65,9 @@
 </template>
 
 <script>
+
+import emitter from '@/methods/emitter';
+
 export default {
   data() {
     return {
@@ -78,6 +78,7 @@ export default {
         loadingItem: "", //對應品項id
       },
       cart: {},
+      cartLen: 0,
     };
   },
   methods: {
@@ -86,10 +87,9 @@ export default {
     },
     getCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.isLoading = true;
       this.$http.get(url).then((res) => {
         this.cart = res.data.data;
-        this.isLoading = false;
+        this.cartLen = res.data.data.carts.length;
       });
     },
     removeCartItem(id) {
@@ -103,6 +103,9 @@ export default {
     },
   },
   created() {
+    emitter.on('sendCart',(data) =>{
+      this.cart = data ;
+    });
     this.getCart();
   },
 };

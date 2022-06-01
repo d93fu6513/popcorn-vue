@@ -134,6 +134,9 @@
 </template>
 
 <script>
+
+import emitter from '@/methods/emitter';
+
 export default {
   data() {
     return {
@@ -169,17 +172,17 @@ export default {
     },
     addCart(id) {
       //加入購物車
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       const cart = {
         product_id: id,
         qty: 1,
       };
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.status.loadingItem = id;
       this.$http.post(url, { data: cart }).then((res) => {
-        this.status.loadingItem = "";
-        this.$httpMessageState(res, "加入購物車");
-        // 加入購物車後不會自動更新，要另外重新整理
-        this.getCart();
+      this.status.loadingItem = "";
+      this.$httpMessageState(res, "加入購物車");
+      // 加入購物車後不會自動更新，要另外重新整理
+      emitter.emit('sendCart', this.cart);
       });
     },
   },

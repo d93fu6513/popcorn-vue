@@ -134,6 +134,12 @@ img {
         }
     }
 
+    h3 {
+        font-size: $font-l;
+        color: white;
+        margin-top: 10px;
+    }
+
     .cart-header a {
         display: flex;
         justify-content: center;
@@ -174,12 +180,6 @@ img {
             justify-content: center;
             width: 60%;
             align-items: center;
-
-            h3 {
-                font-size: $font-l;
-                color: white;
-                margin-top: 10px;
-            }
 
             .num {
                 display: flex;

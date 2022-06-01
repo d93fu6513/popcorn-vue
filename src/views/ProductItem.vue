@@ -140,23 +140,21 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`;
       this.isLoading = true;
       this.$http.get(api).then((response) => {
+        this.isLoading = false;
         if (response.data.success) {
           this.product = response.data.product;
-          this.isLoading = false;
         }
       });
     },
     addToCart(id) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      // 無法運作
-      // this.isLoading = true;
+      this.isLoading = true;
       const cart = {
         product_id: id,
         qty: this.count,
       };
       this.$http.post(url, { data: cart }).then((res) => {
-        // 無法運作
-        // this.isLoading = false;
+        this.isLoading = false;
         this.$httpMessageState(res, "加入購物車");
         //因為無法自動更新購物車，要另外重新整理，所以先跳回產品頁
         this.$router.push("/product/index");

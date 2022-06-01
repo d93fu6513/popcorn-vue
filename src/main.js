@@ -16,9 +16,6 @@ import AllRules from '@vee-validate/rules';
 import { localize, setLocale } from '@vee-validate/i18n';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 import { MotionPlugin } from '@vueuse/motion'
-
-
-
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCircleCheck, faTrashCan, faMinus, faPlus, faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck } from "@fortawesome/free-solid-svg-icons";
