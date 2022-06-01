@@ -15,23 +15,34 @@
     </ol>
     <div class="box">
       <div class="banner">
-      <Swiper
-          :style="{'--swiper-navigation-color': '#fff','--swiper-pagination-color': '#fff'}"
-          :loop="false"          
+        <Swiper
+          :style="{
+            '--swiper-navigation-color': '#fff',
+            '--swiper-pagination-color': '#fff',
+          }"
+          :loop="false"
           :thumbs="{ swiper: thumbsSwiper }"
           :navigation="true"
           :autoplay="{
-          delay: 3500,
-          disableOnInteraction: false,
-        }"
+            delay: 3500,
+            disableOnInteraction: false,
+          }"
           :direction="'horizontal'"
           class="mySwiper2"
         >
           <SwiperSlide>
-            <img :src="product.imageUrl" :alt="product.title" class="img-fluid">
+            <img
+              :src="product.imageUrl"
+              :alt="product.title"
+              class="img-fluid"
+            />
           </SwiperSlide>
-          <SwiperSlide v-for="(image , key) in product.images" :key="image">
-            <img :src="image" :alt="`${product.title} ${key}`" class="img-fluid">
+          <SwiperSlide v-for="(image, key) in product.images" :key="image">
+            <img
+              :src="image"
+              :alt="`${product.title} ${key}`"
+              class="img-fluid"
+            />
           </SwiperSlide>
         </Swiper>
         <Swiper
@@ -45,10 +56,18 @@
           class="mySwiper"
         >
           <SwiperSlide>
-            <img :src="product.imageUrl" :alt="product.title" class="img-fluid">
+            <img
+              :src="product.imageUrl"
+              :alt="product.title"
+              class="img-fluid"
+            />
           </SwiperSlide>
-          <SwiperSlide v-for="(image , key) in product.images" :key="image">
-            <img :src="image" :alt="`${product.title} ${key}`"  class="img-fluid">
+          <SwiperSlide v-for="(image, key) in product.images" :key="image">
+            <img
+              :src="image"
+              :alt="`${product.title} ${key}`"
+              class="img-fluid"
+            />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -56,235 +75,39 @@
         <h2>{{ product.title }}</h2>
         <h3>{{ product.description }}</h3>
         <h4>{{ product.content }}</h4>
-        <h5>${{ product.origin_price }} 元 / {{ product.unit }}</h5>        
+        <h5>${{ product.origin_price }} 元 / {{ product.unit }}</h5>
         <div class="count">
-          <button @click="minus"><font-awesome-icon :icon="['fas', 'minus']" /></button>
-          <input type="number" min="1" :value="count">
-          <button @click="plus"><font-awesome-icon :icon="['fas', 'plus']" /></button>
+          <button @click="minus">
+            <font-awesome-icon :icon="['fas', 'minus']" />
+          </button>
+          <input type="number" min="1" :value="count" />
+          <button @click="plus">
+            <font-awesome-icon :icon="['fas', 'plus']" />
+          </button>
         </div>
-          <button class="add-cart" @click="addToCart(product.id)"><font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車</button>              
+        <button class="add-cart" @click="addToCart(product.id)">
+          <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
+        </button>
       </div>
-      </div>
+    </div>
   </div>
   <Qa></Qa>
 </template>
 
-<style lang="scss" scoped>
-.product-container {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 300;
-  padding-top: 150px;
-  max-width: 1200px;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  @media screen and (max-width: 768px) {
-      padding-top: 90px;
-    }
-}
-.breadcrumb {
-  font-size: 18px;
-  @media screen and (max-width: 768px) {
-      margin: 20px 20px;
-    }
-  li {
-    a {
-      text-decoration: none;
-      color: #5c5e66;
-    }
-    & + li:before {
-      content: ">";
-      margin: 0 10px;
-      color: #5c5e66;
-    }
-    &:last-child {
-      color: #93a38a;
-    }
-    &:hover a {
-      border-bottom: 1px solid #5c5e66;
-    }
-  }
-}
-.box{
-  display: flex;
-  @media screen and (max-width: 768px) {
-      flex-direction: column;
-    }
-}
-.text{
-  margin-left: 20px;
-  @media screen and (max-width: 768px) {
-      margin: 10px 20px;
-    }
-  h2{
-    font-weight: 500;
-    font-size: 38px;
-    color: #5c5e66;
-    position: relative;
-    &:after{
-      content: '';
-      width: 100%;
-      border-bottom: 2px solid #d6d6ca;
-      position: absolute;
-      bottom: -20px;
-      left: 0;
-    }
-  }
-  h3{
-    width: 400px;
-    font-size: 20px;
-    color: white;
-    background-color: #93a38a;
-    text-align: center;
-    border-radius: 7px;
-    margin-top: 40px;
-    padding: 10px 0;
-    letter-spacing: 2px;
-    @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-  }
-  h4{
-    margin: 20px 0;
-    font-size: 20px;
-    color: #5c5e66;
-    line-height: 28px;
-  }
-  h5{
-    font-weight: 500;
-    font-size: 38px;
-    color: #d67675;
-  }
-  .count{
-    display: flex;
-    margin: 20px 0;
-    align-items: center;
-    button{
-      width: 50px;
-      height: 50px;
-      border: none;
-      background-color: #d6d6ca;
-      svg{
-        transition: 0.3s ease-in-out;
-      }
-      &:hover svg{
-        transform: scale(1.7);
-      }
-    }
-    input{
-      width: 250px;
-      height: 50px;
-      text-align: center;
-      border: 1px solid #d6d6ca;
-      font-size: 20px;
-    }
-  }
-  .add-cart {
-    font-weight: 300;
-    width: 350px;
-    border: 1px solid #93a38a;
-    border-radius: 7px;
-    background-color: transparent;
-    color: #93a38a;
-    font-size: 20px;
-    transition: 0.5s;
-    padding: 10px 0;
-    &:hover {
-      background-color: #93a38a;
-      color: white;
-    }
-  }
-}
-.banner{
-  width: 400px;
-  @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.swiper {
-  width: 100%;
-  height: 300px;
-  margin-left: 0;
-}
-
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
-.mySwiper2 {
-  height: 300px;
-  width: 100%;
-}
-
-.mySwiper {
-  width: 100%;
-  height: 100px;
-  box-sizing: border-box;
-  padding: 10px 0;
-  cursor: pointer;
-}
-
-.mySwiper .swiper-slide {
-  width: 25%;
-  height: 100%;
-  opacity: 0.4;
-}
-
-.mySwiper .swiper-slide-thumb-active {
-  opacity: 1;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-}
-
-</style>
-
-
 <script>
-import SideCart from '@/components/SideCart.vue';
-import Qa from '@/components/Qa.vue';
-import 'swiper/scss';
-import 'swiper/scss/navigation';
-import 'swiper/scss/pagination';
-import 'swiper/scss/thumbs';
+import SideCart from "@/components/SideCart.vue";
+import Qa from "@/components/Qa.vue";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+import "swiper/scss/thumbs";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import SwiperCore, { Navigation, Thumbs, Autoplay, Pagination } from 'swiper/core';
+import SwiperCore, {
+  Navigation,
+  Thumbs,
+  Autoplay,
+  Pagination,
+} from "swiper/core";
 SwiperCore.use([Navigation, Thumbs, Autoplay, Pagination]);
 export default {
   components: {
@@ -292,12 +115,12 @@ export default {
     SwiperSlide,
     SideCart,
     Qa,
-  },  
+  },
   data() {
     return {
       product: {},
       id: "",
-      count:1 ,
+      count: 1,
       thumbsSwiper: null,
     };
   },
@@ -305,11 +128,11 @@ export default {
     setThumbsSwiper(swiper) {
       this.thumbsSwiper = swiper;
     },
-    plus(){
+    plus() {
       this.count += 1;
     },
-    minus(){
-      if(this.count > 1){
+    minus() {
+      if (this.count > 1) {
         this.count -= 1;
       }
     },
@@ -317,17 +140,16 @@ export default {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.id}`;
       this.isLoading = true;
       this.$http.get(api).then((response) => {
-        console.log(response.data);
-        this.isLoading = false;
         if (response.data.success) {
           this.product = response.data.product;
+          this.isLoading = false;
         }
       });
     },
     addToCart(id) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       // 無法運作
-      // this.isLoading = true; 
+      // this.isLoading = true;
       const cart = {
         product_id: id,
         qty: this.count,
@@ -335,15 +157,19 @@ export default {
       this.$http.post(url, { data: cart }).then((res) => {
         // 無法運作
         // this.isLoading = false;
-        this.$httpMessageState(res, '加入購物車');
+        this.$httpMessageState(res, "加入購物車");
         //因為無法自動更新購物車，要另外重新整理，所以先跳回產品頁
-        this.$router.push('/product/index');
+        this.$router.push("/product/index");
       });
     },
-  },  
+  },
   created() {
     this.id = this.$route.params.productId;
     this.getProduct();
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "@/assets/css/viewsScss/_productItem";
+</style>

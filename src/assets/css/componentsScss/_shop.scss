@@ -1,0 +1,194 @@
+@import "@/assets/css/helpers/variablesMy";
+
+img {
+    width: 100%;
+    height: 356px;
+    vertical-align: middle;
+}
+
+.wrap {
+    margin-bottom: 50px;
+    .container {
+        margin: auto;
+        max-width: 1200px;
+        width: 100%;
+        height: 100%;
+
+        h2 {
+            font-family: $font-ch;
+            font-size: $font-xxl;
+            color: $blue;
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+
+            &:after {
+                content: "";
+                width: 200px;
+                border-bottom: 5px dotted $blue;
+                position: absolute;
+                bottom: -50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            @media screen and (max-width: 768px) {
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+
+.shopnav {
+    display: flex;
+    justify-content: space-around;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        border: 1px solid $blue;
+        padding: 30px 0px;
+        border-radius: 20px;
+        font-size: $font-l;
+        color: $blue;
+        position: relative;
+        transition: .3s ease-in-out;
+        text-decoration: none;
+        letter-spacing: 20px;
+
+        @media screen and (max-width: 768px) {
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        svg {
+            width: 70px;
+        }
+
+        &:hover {
+            background-color: $blue;
+            color: white;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: -20px;
+                left: 50px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 20px 20px 0 20px;
+                border-color: $blue transparent transparent transparent;
+
+                @media screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .active {
+        background-color: $blue;
+        color: white;
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 20px 20px 0 20px;
+            border-color: $blue transparent transparent transparent;
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
+        }
+    }
+}
+
+.shopbody {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+
+    @media screen and (max-width: 768px) {
+        margin-top: 0px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 5px $black-light;
+        border-radius: 5px;
+        transition: .3s ease-in-out;
+        text-align: center;
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            margin: 0 0 20px 0;
+        }
+
+        &:hover {
+            box-shadow: 0 0 10px $black-light;
+        }
+
+        img {
+            transition: .5s ease-in-out;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        h3 {
+            font-size: $font-xl;
+            margin: 20px 0;
+            color: $blue;
+        }
+
+        h4 {
+            font-size: $font-m;
+            color: $black-light;
+        }
+
+        h5 {
+            font-size: $font-l;
+            margin: 20px 0;
+            color: $pink;
+        }
+    }
+}
+
+.shopfooter {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    margin-bottom: 20px;
+
+    .intro,
+    .add-cart {
+        width: 150px;
+        border: 1px solid $blue;
+        border-radius: 5px;
+        background-color: transparent;
+        color: $blue;
+        font-size: $font-m;
+        transition: .5s ease-in-out;
+
+        &:hover {
+            background-color: $blue;
+            color: white;
+        }
+    }
+}

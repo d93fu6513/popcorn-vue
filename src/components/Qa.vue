@@ -50,79 +50,6 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-.wrap {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 300;
-    margin: 50px 0;
-  @media screen and (max-width: 768px) {
-      margin: 20px 0;
-    }
-  .container {
-    max-width: 1200px;
-    width: 100%;
-    height: 100%;
-    h2 {
-      font-size: 40px;
-      color: #93a38a;
-      position: relative;
-      margin: 50px 0;
-      text-align: center;
-      &:after {
-        content: "";
-        width: 200px;
-        border-bottom: 5px dotted #93a38a;
-        position: absolute;
-        bottom: -50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      @media screen and (max-width: 768px) {
-        margin-bottom: 40px;
-      }
-    }
-  }
-  .item {
-    margin: 10px;
-    color: #5c5e66;
-    font-size: 20px;
-    line-height: 30px;
-    letter-spacing: 2px;
-      @media screen and (max-width: 768px) {
-        font-size: 18px;
-      }
-  }
-  .title {
-    padding: 20px;
-    background-color: #d6d6ca;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .3s ease-in-out;
-    &:hover{
-        transform: scale(1.02);
-    }
-  }
-  .text {
-    padding: 20px;
-    margin-top: 10px;
-    border: 3px dotted #d6d6ca;
-    border-radius: 10px;
-  }
-}
-.v-enter-active,
-.v-leave-active {
-  transition: .5s ease-in-out;
-}
-
-.v-enter-from {
-  transform: translateX(-10%);
-}
-
-.v-leave-to {
-  transform: translateX(10%);
-}
-</style>
-
 <script>
 export default {
   data() {
@@ -135,3 +62,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "@/assets/css/componentsScss/_qa";
+</style>

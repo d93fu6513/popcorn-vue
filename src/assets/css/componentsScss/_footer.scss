@@ -1,0 +1,10 @@
+@import "@/assets/css/helpers/variablesMy";
+
+.footerbody{
+    font-family: $font-ch;
+    height: 100px;
+    background-color: $blue;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+  }

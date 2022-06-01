@@ -1,0 +1,84 @@
+@import "@/assets/css/helpers/variablesMy";
+
+img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+  }
+  .wrap {      
+    margin-top: 50px;
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      height: 100%;
+      h2 {
+        font-size: $font-xxl;
+        color: $blue;
+        position: relative;
+        margin-bottom: 50px;
+        text-align: center;
+        &:after {
+          content: "";
+          width: 200px;
+          border-bottom: 5px dotted $blue;
+          position: absolute;
+          bottom: -50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        @media screen and (max-width: 768px) {
+          margin-bottom: 40px;
+        }
+      }
+    }
+    .aboutbody {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      .item {
+        width: 48%;
+        height: 100%;
+        margin: 10px;
+        box-shadow: 0 0 5px $black-light;
+        
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+        iframe {
+          @media screen and (max-width: 768px) {
+            height: 100%;
+          }
+        }
+        .itemhead {
+          display: flex;
+          align-items: center;
+          margin: 10px 0 10px 20px;
+          img {
+            width: 10%;
+            height: 10%;
+            padding: 5px;
+            background-color: $blue;
+            border-radius: 50%;
+          }
+          h3 {
+            font-family: $font-eg;
+            font-size: $font-l;
+            padding-left: 20px;
+            color: $black;
+          }
+        }
+        .text {
+          margin: 10px 0 0 20px;
+          font-size: $font-m;
+          p {
+            padding-bottom: 10px;
+            color: $black-light;
+            letter-spacing: 1px;
+          }
+          & > :first-child svg{
+            color: $pink;
+          }
+        }
+      }
+    }
+  }

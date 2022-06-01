@@ -1,5 +1,5 @@
 <template>
-<Loading :active="isLoading"></Loading>
+  <Loading :active="isLoading"></Loading>
   <div class="wrap">
     <div class="cart-container">
       <h2>購物車</h2>
@@ -70,247 +70,6 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-img {
-  width: 13%;
-  height: auto;
-  vertical-align: middle;
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
-}
-.wrap {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 300;
-  margin-top: 150px;
-  @media screen and (max-width: 768px) {
-    margin-top: 100px;
-  }
-  .cart-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    max-width: 1200px;
-    width: 100%;
-    height: 100%;
-    h2 {
-      font-size: 40px;
-      color: #93a38a;
-      position: relative;
-      margin-bottom: 40px;
-      text-align: center;
-      &:after {
-        content: "";
-        width: 200px;
-        border-bottom: 5px dotted #93a38a;
-        position: absolute;
-        bottom: -50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-    ul {
-      display: flex;
-      justify-content: space-around;
-      position: relative;
-      @media screen and (max-width: 768px) {
-        flex-direction: column;
-        justify-content: center;
-        margin: 0 10px;
-      }
-      &:before {
-        content: "";
-        position: absolute;
-        bottom: -30px;
-        left: 0;
-        width: 100%;
-        border-top: 3px solid #d6d6ca;
-      }
-    }
-    li {
-      background: #949494;
-      border-radius: 15px;
-      padding: 20px 80px;
-      font-size: 22px;
-      text-align: center;
-      line-height: 30px;
-      color: white;
-      @media screen and (max-width: 768px) {
-        font-size: 18px;
-        padding: 10px;
-        border-radius: 0px;
-      }
-      &:first-child {
-        background-color: #93a38a;
-      }
-    }
-  }
-  .cart-body {
-    margin-top: 40px;
-    @media screen and (max-width: 768px) {
-      margin: 40px 10px 0 10px;
-    }
-  }
-  .box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #e9f0f3;
-    margin: 10px 0;
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-    }
-    h3 {
-      font-weight: 500;
-      font-size: 26px;
-      color: #949494;
-      position: relative;
-      margin: 50px 0;
-      text-align: center;
-      @media screen and (max-width: 768px) {
-        margin: 10px 0;
-      }
-    }
-    h4 {
-      font-size: 26px;
-      color: #949494;
-      position: relative;
-      margin: 50px 0;
-      text-align: center;
-      @media screen and (max-width: 768px) {
-        margin: 10px 0;
-      }
-    }
-    small {
-      font-size: 16px;
-      color: #d67675;
-    }
-    .count {
-      display: flex;
-      margin: 20px 0;
-      align-items: center;
-      button {
-        width: 30px;
-        height: 30px;
-        border: none;
-        background-color: #d6d6ca;
-        svg {
-          transition: .3s ease-in-out;
-          color: #949494;
-        }
-        &:hover svg {
-          transform: scale(1.2);
-        }
-      }
-      input {
-        width: 150px;
-        height: 30px;
-        text-align: center;
-        border: 1px solid #d6d6ca;
-        font-size: 20px;
-        color: #949494;
-      }
-    }
-    .cart-del {
-      background-color: transparent;
-      border: none;
-      font-size: 20px;
-      color: #d67675;
-      transition: .3s ease-in-out;
-      margin-right: 30px;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-  .box-footer {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin: 40px 0;
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      margin: 40px 0 0 0;
-    }
-    &:before {
-      content: "";
-      position: absolute;
-      top: -20px;
-      left: 0;
-      width: 100%;
-      border-top: 3px solid #d6d6ca;
-    }
-    .coupon {
-      display: flex;
-      @media screen and (max-width: 768px) {
-        justify-content: center;
-      }
-      input {
-        font-weight: 300;
-        width: 60%;
-      }
-      button {
-        font-weight: 300;
-        margin-left: 10px;
-        border: none;
-        background-color: #d6d6ca;
-        color: #949494;
-        transition: .3s ease-in-out;
-        border-radius: 3px;
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
-    .price {
-      display: flex;
-      @media screen and (max-width: 768px) {
-        justify-content: center;
-        text-align: center;
-        margin: 10px 5px;
-        font-size: 22px;
-      }
-      strong {
-        color: #d67675;
-        margin-left: 30px;
-      }
-    }
-  }
-  .cart-footer {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    padding-bottom: 30px;
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-    }
-    a {
-      text-decoration: none;
-      color: white;
-      font-size: 22px;
-      background-color: #93a38a;
-      width: 200px;
-      border-radius: 10px;
-      text-align: center;
-      padding: 20px 0;
-      margin-left: 30px;
-      transition: .3s ease-in-out;
-      @media screen and (max-width: 768px) {
-        margin: 10px 0 0 0;
-      }
-      &:hover {
-        transform: scale(1.1);
-      }
-      &:first-child {
-        background-color: #949494;
-      }
-    }
-  }
-}
-</style>
-
 <script>
 export default {
   data() {
@@ -339,8 +98,8 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.isLoading = true;
       this.$http.get(url).then((res) => {
-        this.isLoading = false;
         this.products = res.data.products;
+        this.isLoading = false;
       });
     },
     getCart() {
@@ -377,10 +136,10 @@ export default {
     },
     addCouponCode() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
+      this.isLoading = true;
       const coupon = {
         code: this.coupon_code,
-      };
-      this.isLoading = true;
+      };      
       this.$http.post(url, { data: coupon }).then((response) => {
         this.$httpMessageState(response, "加入優惠券");
         this.getCart();
@@ -394,3 +153,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "@/assets/css/viewsScss/_finalcart";
+</style>

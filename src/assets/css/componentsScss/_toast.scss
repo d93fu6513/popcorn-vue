@@ -1,0 +1,11 @@
+@import "@/assets/css/helpers/variablesMy";
+
+.toast,
+.toast-header,
+.toast-body{
+  width: 300px;
+  height: 100px;
+  font-size: $font-m;
+  font-family: $font-ch;
+  margin-bottom: 10px;
+}

@@ -1,28 +1,27 @@
 <template>
   <div class="wrap">
-    <div class="container">
-      <h2 v-motion-slide-visible-top :delay="200">關於好運</h2>
+    <div class="container" v-motion-slide-visible-top :delay="200">
+      <h2>關於好運</h2>
       <div class="aboutbody">
-        <div class="item" v-motion-slide-visible-top :delay="200">
+        <div class="item">
           <div class="itemhead">
             <img src="../assets/images/about1-1.png" alt="" srcset="" />
-            
             <h3>luckypopcorn</h3>
           </div>
           <img src="../assets/images/about1.png" alt="" srcset="" />
           <div class="text">
             <p><font-awesome-icon :icon="['fas', 'heart']" /> 9,999個讚</p>
-            <p>
-              好運堅持使用最好的原料
-            </p>
+            <p>好運堅持使用最好的原料</p>
             <p>
               <font-awesome-icon :icon="['fas', 'check']" /> 美國非基改玉米粒
             </p>
-            <p><font-awesome-icon :icon="['fas', 'check']" /> 爆米花專用椰子油</p>
+            <p>
+              <font-awesome-icon :icon="['fas', 'check']" /> 爆米花專用椰子油
+            </p>
             <p><font-awesome-icon :icon="['fas', 'check']" /> 美國進口焦糖</p>
           </div>
         </div>
-        <div class="item" v-motion-slide-visible-bottom :delay="300">
+        <div class="item">
           <div class="itemhead">
             <img src="../assets/images/about1-1.png" alt="" srcset="" />
             <h3>luckypopcorn</h3>
@@ -50,85 +49,5 @@
 </template>
 
 <style lang="scss" scoped>
-img {
-  width: 100%;
-  height: 100%;
-  vertical-align: middle;
-}
-.wrap {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 300;
-  .container {
-    max-width: 1200px;
-    width: 100%;
-    height: 100%;
-    margin-top: 30px;
-    h2 {
-      font-size: 40px;
-      color: #93a38a;
-      position: relative;
-      margin-bottom: 50px;
-      text-align: center;
-      &:after {
-        content: "";
-        width: 200px;
-        border-bottom: 5px dotted #93a38a;
-        position: absolute;
-        bottom: -50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      @media screen and (max-width: 768px) {
-        margin-bottom: 40px;
-      }
-    }
-  }
-  .aboutbody {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    .item {
-      width: 48%;
-      height: 100%;
-      margin: 10px;
-      box-shadow: 0 0 5px #93a38a;
-      
-      @media screen and (max-width: 768px) {
-        width: 100%;
-      }
-      iframe {
-        @media screen and (max-width: 768px) {
-          height: 100%;
-        }
-      }
-      .itemhead {
-        display: flex;
-        align-items: center;
-        margin: 10px 0 10px 20px;
-        img {
-          width: 10%;
-          height: 10%;
-        }
-        h3 {
-          font-family: 'Fredoka One', cursive;
-          font-size: 26px;
-          padding-left: 20px;
-          color: #5c5e66;
-        }
-      }
-      .text {
-        margin: 10px 0 0 20px;
-        font-size: 20px;
-        p {
-          padding-bottom: 10px;
-          color: #5c5e66;
-          letter-spacing: 1px;
-        }
-        & > :first-child svg{
-          color: #d67675;
-        }
-      }
-    }
-  }
-}
+@import "@/assets/css/componentsScss/_info";
 </style>

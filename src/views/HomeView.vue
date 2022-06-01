@@ -3,9 +3,9 @@
     <Banner></Banner>
     <Sale v-motion-slide-visible-left :delay="200"></Sale>
     <SideCart></SideCart>
-    <Shop></Shop>
-    <Banner2 v-motion-fade-visible :delay="200"></Banner2>
+    <Shop></Shop>    
     <Info></Info>
+    <Banner2></Banner2>
     <Qa v-motion-fade-visible :delay="200"></Qa>
     <Footer></Footer>
     <ToastMessages></ToastMessages>

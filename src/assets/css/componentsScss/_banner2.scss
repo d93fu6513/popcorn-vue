@@ -1,0 +1,56 @@
+@import "@/assets/css/helpers/variablesMy";
+
+.banner2 {
+    background-image: url(../assets/images/banner2.png);
+    width: 100%;
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .8) 50%, rgba(255, 255, 255, 0) 100%);
+        width: 600px;
+        height: 300px;
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            margin: 0 0 20px 0;
+        }
+    }
+
+    h3 {
+
+        font-family: $font-ch;
+        font-weight: bold;
+        font-size: $font-xl;
+        color: $blue;
+        text-align: center;
+        line-height: 60px;
+    }
+
+    .icon {
+        display: flex;
+    }
+
+    a {
+        font-size: $font-xxl;
+        color: $blue;
+        padding: 20px;
+        transform: translateY(0);
+        transition: .3s ease-in-out;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+    }
+}
