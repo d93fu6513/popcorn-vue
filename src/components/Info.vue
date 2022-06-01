@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div class="container" v-motion-slide-visible-top :delay="200">
+    <div class="container" v-motion-slide-visible-once-top :delay="200">
       <h2>關於好運</h2>
       <div class="aboutbody">
         <div class="item">

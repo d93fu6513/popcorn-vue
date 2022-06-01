@@ -1,7 +1,7 @@
 <template>
   <Loading :active="isLoading"></Loading>
   <div class="wrap">
-    <div class="container" v-motion-slide-visible-top>
+    <div class="container" v-motion-slide-visible-once-top>
       <h2>好運商品</h2>
       <div class="shopnav">
         <a

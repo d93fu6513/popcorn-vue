@@ -1,12 +1,12 @@
 <template>
     <Header></Header>
     <Banner></Banner>
-    <Sale v-motion-slide-visible-left :delay="200"></Sale>
+    <Sale v-motion-slide-visible-once-left :delay="200"></Sale>
     <SideCart></SideCart>
     <Shop></Shop>    
     <Info></Info>
     <Banner2></Banner2>
-    <Qa v-motion-fade-visible :delay="200"></Qa>
+    <Qa v-motion-fade-visible-once :delay="200"></Qa>
     <Footer></Footer>
     <ToastMessages></ToastMessages>
     <router-view/>
