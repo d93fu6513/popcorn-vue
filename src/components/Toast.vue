@@ -11,14 +11,8 @@
         class="toast-body d-flex align-items-center"
         :class="`text-${msg.style}`"
       >
-        <i
-          class="bi me-3"
-          :class="
-            msg.style === 'success'
-              ? 'bi-check-circle-fill'
-              : 'bi-exclamation-circle-fill'
-          "
-        ></i>
+        <div v-if="msg.style === 'success'"><font-awesome-icon :icon="['fas', 'circle-check']" /></div>
+        <div v-else><font-awesome-icon :icon="['fas', 'circle-xmark']" /></div>
         {{ msg.content || msg.title }}
       </div>
       <button
@@ -39,7 +33,7 @@ export default {
   mounted() {
     const toastEl = this.$refs.toast;
     const toast = new Toast(toastEl, {
-      delay: 10000,
+      delay: 3000,
     });
     toast.show();
   },

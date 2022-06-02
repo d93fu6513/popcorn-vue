@@ -101,6 +101,7 @@ img {
     padding: 10px;
     color: white;
     border-radius: 10px;
+
     @media screen and (max-width: 768px) {
         bottom: 65px;
         right: 0px;
@@ -159,10 +160,13 @@ img {
         background-color: $blue;
         color: white;
         border-radius: 10px;
-        transition: .3s ease-in-out;
 
-        &:hover {
-            transform: scale(1.1);
+        svg {
+            transition: .3s ease-in-out;
+        }
+
+        &:hover svg {
+            transform: scale(1.2);
         }
     }
 

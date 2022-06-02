@@ -9,11 +9,10 @@
         <button class="sidecarticon-back" @click="tooglesideCart">
           查看<br />購物車
         </button>
-          <!-- 問題：length=0時不會顯示 -->
-          <div class="icon-num" v-if="cartLen !== 0">
-            {{ cartLen }}
-          </div>
-          <div class="icon-null" v-else>來點好運</div>
+        <div class="icon-num" v-if="cartLen !== 0">
+          {{ cartLen }}
+        </div>
+        <div class="icon-null" v-else>來點好運</div>
       </div>
       <transition name="sideCart">
         <div class="cart-wrap" v-show="sideCart">
@@ -24,8 +23,8 @@
                 好運購物車
               </h2>
               <a href="#" @click.prevent="tooglesideCart"
-                ><i class="bi bi-x"></i
-              ></a>
+                ><font-awesome-icon :icon="['fas', 'xmark']"
+              /></a>
             </div>
             <h3 v-if="cartLen === 0">購物車目前空空的</h3>
             <div class="cart-item" v-for="item in cart.carts" :key="item.id">
@@ -65,8 +64,7 @@
 </template>
 
 <script>
-
-import emitter from '@/methods/emitter';
+import emitter from "@/methods/emitter";
 
 export default {
   data() {
@@ -103,10 +101,10 @@ export default {
     },
   },
   created() {
-    emitter.on('sendCart',(data) =>{
-      this.cart = data ;
+    emitter.on("sendCart", (data) => {
+      this.cart = data;
+      this.getCart();
     });
-    this.getCart();
   },
 };
 </script>

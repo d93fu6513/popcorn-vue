@@ -8,7 +8,6 @@
     <swiper-slide><img src="../assets/images/banner1.png" alt="banner1" width="100%"></swiper-slide>
     <swiper-slide><img src="../assets/images/banner1-2.png" alt="banner2" width="100%"></swiper-slide>
     <swiper-slide><img src="../assets/images/banner1-3.png" alt="banner3" width="100%"></swiper-slide>
-    <swiper-slide><img src="../assets/images/banner1-4.png" alt="banner3" width="100%"></swiper-slide>
   </swiper>
   
 </template>
