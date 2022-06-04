@@ -41,10 +41,11 @@
               <button
                 type="button"
                 class="cart-del"
-                :disabled="status.loadingItem === item.id"
+                :disabled="this.status.loadingItem === item.id"
                 @click="removeCartItem(item.id)"
               >
-                <font-awesome-icon :icon="['fas', 'trash-can']" />
+                <font-awesome-icon :icon="['fas', 'spinner']" v-if="this.status.loadingItem === item.id" />
+                <font-awesome-icon :icon="['fas', 'trash-can']" v-else />
               </button>
             </div>
             <div class="cart-footer">

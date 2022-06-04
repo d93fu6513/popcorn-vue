@@ -6,22 +6,14 @@
     aria-atomic="true"
     ref="toast"
   >
-    <div class="d-flex">
       <div
-        class="toast-body d-flex align-items-center"
+        class="toast-body align-items-center"
         :class="`text-${msg.style}`"
       >
         <div v-if="msg.style === 'success'"><font-awesome-icon :icon="['fas', 'circle-check']" /></div>
         <div v-else><font-awesome-icon :icon="['fas', 'circle-xmark']" /></div>
         {{ msg.content || msg.title }}
       </div>
-      <button
-        type="button"
-        class="btn-close m-auto"
-        data-bs-dismiss="toast"
-        aria-label="Close"
-      ></button>
-    </div>
   </div>
 </template>
 

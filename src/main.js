@@ -19,9 +19,9 @@ import animated from "animate.css";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faXmark, faCircleXmark, faCircleCheck, faTrashCan, faMinus, faPlus, faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner, faXmark, faCircleXmark, faCircleCheck, faTrashCan, faMinus, faPlus, faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faInstagramSquare, faLine } from '@fortawesome/free-brands-svg-icons'
-library.add( faXmark, faCircleXmark, faCircleCheck, faTrashCan, faMinus, faPlus, faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck, faFacebookSquare, faInstagramSquare, faLine);
+library.add( faSpinner, faXmark, faCircleXmark, faCircleCheck, faTrashCan, faMinus, faPlus, faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck, faFacebookSquare, faInstagramSquare, faLine);
 
 const app = createApp(App)
 app.config.globalProperties.$filters = {

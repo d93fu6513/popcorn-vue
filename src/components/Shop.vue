@@ -59,10 +59,11 @@
                 <button
                   type="button"
                   class="add-cart"
-                  :disabled="status.loadingItem === item.id"
+                  :disabled="this.status.loadingItem === item.id"
                   @click="addCart(item.id)"
                 >
-                  <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
+                  <font-awesome-icon :icon="['fas', 'spinner']" v-if="this.status.loadingItem === item.id" />
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else/> 購物車
                 </button>
               </div>
             </div>
@@ -83,16 +84,17 @@
                   class="intro"
                   @click="getProduct(item.id)"
                 >
-                  <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
+                  <font-awesome-icon :icon="['fas', 'magnifying-glass']"/>
                   查看更多
                 </button>
                 <button
                   type="button"
                   class="add-cart"
-                  :disabled="status.loadingItem === item.id"
+                  :disabled="this.status.loadingItem === item.id"
                   @click="addCart(item.id)"
                 >
-                  <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
+                  <font-awesome-icon :icon="['fas', 'spinner']" v-if="this.status.loadingItem === item.id" />
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else/> 購物車
                 </button>
               </div>
             </div>
@@ -119,10 +121,11 @@
                 <button
                   type="button"
                   class="add-cart"
-                  :disabled="status.loadingItem === item.id"
+                  :disabled="this.status.loadingItem === item.id"
                   @click="addCart(item.id)"
                 >
-                  <font-awesome-icon :icon="['fas', 'cart-plus']" /> 購物車
+                  <font-awesome-icon :icon="['fas', 'spinner']" v-if="this.status.loadingItem === item.id" />
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else/> 購物車
                 </button>
               </div>
             </div>

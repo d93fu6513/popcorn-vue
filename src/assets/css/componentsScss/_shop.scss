@@ -186,9 +186,14 @@ img {
         font-size: $font-m;
         transition: .5s ease-in-out;
 
+        &:disabled{
+            opacity: 0.3;
+        }
+
         &:hover {
             background-color: $blue;
             color: white;
         }
     }
 }
+

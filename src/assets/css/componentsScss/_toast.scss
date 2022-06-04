@@ -3,9 +3,12 @@
 .toast,
 .toast-header,
 .toast-body{
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100px;
+  height: 100%;
   font-size: $font-m;
   font-family: $font-ch;
   margin-bottom: 10px;
+  line-height: 30px;
 }

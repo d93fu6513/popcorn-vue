@@ -204,6 +204,10 @@ img {
             color: $pink;
             transition: .3s ease-in-out;
 
+            &:disabled{
+                opacity: 0.3;
+            }
+
             &:hover {
                 transform: scale(1.1);
             }
