@@ -48,7 +48,7 @@
                 <font-awesome-icon :icon="['fas', 'trash-can']" v-else />
               </button>
             </div>
-            <div class="cart-footer">
+            <div class="cart-footer" v-if="cartLen !== 0">
               <h4>小計</h4>
               <h5>${{ $filters.currency(cart.total) }}元</h5>
             </div>
