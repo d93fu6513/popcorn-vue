@@ -38,7 +38,7 @@
           <button
             type="button"
             class="cart-del"
-            :disabled="status.loadingItem === item.id"
+            :disabled="loadingItem === item.id"
             @click="removeCartItem(item.id)"
           >
             <font-awesome-icon :icon="['fas', 'trash-can']" />
@@ -71,19 +71,26 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "pinia";
+import productStore from "@/stores/productStore";
+import statusStore from "@/stores/statusStore";
+import cartStore from "@/stores/cartStore";
+
 export default {
   data() {
     return {
-      products: [],
-      product: {},
-      status: {
-        loadingItem: "", //對應品項id
-      },
-      cart: {},
       coupon_code: "",
     };
   },
+  computed: {
+    ...mapState(productStore, ["products", "product"]),
+    ...mapState(statusStore, ["isLoading", "loadingItem"]),
+    ...mapState(cartStore, ["cart", "cartLen"]),
+  },
   methods: {
+    ...mapActions(productStore, ["getProducts"]),
+    ...mapActions(cartStore, ["getCart", "updateCart", "removeCartItem"]),
+
     plus(item) {
       item.qty += 1;
       this.updateCart(item);
@@ -94,56 +101,16 @@ export default {
         this.updateCart(item);
       }
     },
-    getProducts() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        this.products = res.data.products;
-        this.isLoading = false;
-      });
-    },
-    getCart() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        this.cart = res.data.data;
-        this.isLoading = false;
-      });
-    },
-    updateCart(item) {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
-      this.isLoading = true;
-      this.status.loadingItem = item.id;
-      const cart = {
-        product_id: item.product_id,
-        qty: item.qty,
-      };
-      this.$http.put(url, { data: cart }).then((res) => {
-        this.status.loadingItem = "";
-        this.getCart();
-      });
-    },
-    removeCartItem(id) {
-      this.status.loadingItem = id;
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
-      this.isLoading = true;
-      this.$http.delete(url).then((res) => {
-        this.$httpMessageState(res, "移除購物車品項");
-        this.status.loadingItem = "";
-        this.getCart();
-        this.isLoading = false;
-      });
-    },
     addCouponCode() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
-      this.isLoading = true;
+      // status.isLoading = true;
       const coupon = {
         code: this.coupon_code,
-      };      
+      };
       this.$http.post(url, { data: coupon }).then((response) => {
-        this.$httpMessageState(response, "加入優惠券");
+        // this.$httpMessageState(response, "加入優惠券");
         this.getCart();
-        this.isLoading = false;
+        // status.isLoading = false;
       });
     },
   },

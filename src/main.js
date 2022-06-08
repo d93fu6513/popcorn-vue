@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import App from './App.vue'
@@ -8,6 +9,8 @@ import $httpMessageState from './methods/pushMessageState';
 import Loading from 'vue3-loading-overlay';
 import 'vue3-loading-overlay/dist/vue3-loading-overlay.css';
 import VueClipboard from 'vue-clipboard2'
+
+
 
 import { Field, Form, ErrorMessage, defineRule, configure, } from 'vee-validate';
 import AllRules from '@vee-validate/rules';
@@ -23,6 +26,8 @@ import { faSpinner, faXmark, faCircleXmark, faCircleCheck, faTrashCan, faMinus, 
 import { faFacebookSquare, faInstagramSquare, faLine } from '@fortawesome/free-brands-svg-icons'
 library.add( faSpinner, faXmark, faCircleXmark, faCircleCheck, faTrashCan, faMinus, faPlus, faLightbulb, faCircleQuestion, faGem, faHeart, faCartPlus, faCartShopping, faMagnifyingGlass, faTent, faStore, faArrowPointer, faCircleInfo, faGear, faQuoteLeft, faQuoteRight, faCheck, faFacebookSquare, faInstagramSquare, faLine);
 
+
+const pinia = createPinia()
 const app = createApp(App)
 app.config.globalProperties.$filters = {
   currency,
@@ -43,6 +48,7 @@ app.config.globalProperties.$httpMessageState = $httpMessageState;
 
 app.use(VueAxios, axios) //app.use安裝插件
 app.use(router)
+app.use(pinia)
 app.use(VueClipboard)
 app.use(animated)
 app.use(MotionPlugin)

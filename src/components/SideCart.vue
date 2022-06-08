@@ -41,10 +41,13 @@
               <button
                 type="button"
                 class="cart-del"
-                :disabled="this.status.loadingItem === item.id"
+                :disabled="loadingItem === item.id"
                 @click="removeCartItem(item.id)"
               >
-                <font-awesome-icon :icon="['fas', 'spinner']" v-if="this.status.loadingItem === item.id" />
+                <font-awesome-icon
+                  :icon="['fas', 'spinner']"
+                  v-if="loadingItem === item.id"
+                />
                 <font-awesome-icon :icon="['fas', 'trash-can']" v-else />
               </button>
             </div>
@@ -65,47 +68,29 @@
 </template>
 
 <script>
-import emitter from "@/methods/emitter";
+import { mapState, mapActions } from 'pinia';
+import statusStore from '@/stores/statusStore';
+import cartStore from '@/stores/cartStore';
 
 export default {
   data() {
     return {
       sideCart: "",
-      products: [],
-      product: {},
-      status: {
-        loadingItem: "", //對應品項id
-      },
-      cart: {},
-      cartLen: 0,
     };
   },
+  computed: {
+    ...mapState(statusStore, ['isLoading', 'loadingItem']),
+    ...mapState(cartStore, ['cart', 'cartLen']),
+  },
   methods: {
+    ...mapActions(cartStore, ['getCart', 'removeCartItem']),
+
     tooglesideCart() {
       this.sideCart = !this.sideCart;
     },
-    getCart() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.$http.get(url).then((res) => {
-        this.cart = res.data.data;
-        this.cartLen = res.data.data.carts.length;
-      });
-    },
-    removeCartItem(id) {
-      this.status.loadingItem = id;
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${id}`;
-      this.$http.delete(url).then((res) => {
-        this.$httpMessageState(res, "移除購物車品項");
-        this.status.loadingItem = "";
-        this.getCart();
-      });
-    },
   },
   created() {
-    emitter.on("sendCart", (data) => {
-      this.cart = data;
       this.getCart();
-    });
   },
 };
 </script>

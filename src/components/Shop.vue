@@ -59,11 +59,15 @@
                 <button
                   type="button"
                   class="add-cart"
-                  :disabled="this.status.loadingItem === item.id"
+                  :disabled="loadingItem === item.id"
                   @click="addCart(item.id)"
                 >
-                  <font-awesome-icon :icon="['fas', 'spinner']" v-if="this.status.loadingItem === item.id" />
-                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else/> 購物車
+                  <font-awesome-icon
+                    :icon="['fas', 'spinner']"
+                    v-if="loadingItem === item.id"
+                  />
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else />
+                  購物車
                 </button>
               </div>
             </div>
@@ -84,17 +88,21 @@
                   class="intro"
                   @click="getProduct(item.id)"
                 >
-                  <font-awesome-icon :icon="['fas', 'magnifying-glass']"/>
+                  <font-awesome-icon :icon="['fas', 'magnifying-glass']" />
                   查看更多
                 </button>
                 <button
                   type="button"
                   class="add-cart"
-                  :disabled="this.status.loadingItem === item.id"
+                  :disabled="loadingItem === item.id"
                   @click="addCart(item.id)"
                 >
-                  <font-awesome-icon :icon="['fas', 'spinner']" v-if="this.status.loadingItem === item.id" />
-                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else/> 購物車
+                  <font-awesome-icon
+                    :icon="['fas', 'spinner']"
+                    v-if="loadingItem === item.id"
+                  />
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else />
+                  購物車
                 </button>
               </div>
             </div>
@@ -121,11 +129,15 @@
                 <button
                   type="button"
                   class="add-cart"
-                  :disabled="this.status.loadingItem === item.id"
+                  :disabled="loadingItem === item.id"
                   @click="addCart(item.id)"
                 >
-                  <font-awesome-icon :icon="['fas', 'spinner']" v-if="this.status.loadingItem === item.id" />
-                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else/> 購物車
+                  <font-awesome-icon
+                    :icon="['fas', 'spinner']"
+                    v-if="loadingItem === item.id"
+                  />
+                  <font-awesome-icon :icon="['fas', 'cart-plus']" v-else />
+                  購物車
                 </button>
               </div>
             </div>
@@ -137,58 +149,32 @@
 </template>
 
 <script>
-
-import emitter from '@/methods/emitter';
+import { mapState, mapActions } from "pinia";
+import productStore from "@/stores/productStore";
+import statusStore from "@/stores/statusStore";
+import cartStore from "@/stores/cartStore";
 
 export default {
   data() {
     return {
       link: "經典款",
-      products: [],
-      product: {},
-      status: {
-        loadingItem: "", //對應品項id
-      },
-      cart: {},
     };
   },
+  computed: {
+    ...mapState(productStore, ['products', 'product']),
+    ...mapState(statusStore, ['isLoading', 'loadingItem']),
+    ...mapState(cartStore, ['cart']),
+  },
   methods: {
-    getProducts() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        this.isLoading = false;
-        this.products = res.data.products;
-      });
-    },
+    ...mapActions(productStore, ['getProducts']),
+    ...mapActions(cartStore, ['addCart']),
+
     getProduct(id) {
       this.$router.push(`/product/product/${id}`);
-    },
-    getCart() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        this.cart = res.data.data;
-        this.isLoading = false;
-      });
-    },
-    addCart(id) {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      const cart = {
-        product_id: id,
-        qty: 1,
-      };
-      this.status.loadingItem = id;
-      this.$http.post(url, { data: cart }).then((res) => {
-      this.status.loadingItem = "";
-      this.$httpMessageState(res, "加入購物車");
-      emitter.emit('sendCart', this.cart);
-      });
     },
   },
   created() {
     this.getProducts();
-    this.getCart();
   },
 };
 </script>
