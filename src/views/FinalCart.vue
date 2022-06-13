@@ -32,8 +32,8 @@
           </div>
           <h4>${{ item.product.price }}元 / {{ item.product.unit }}</h4>
           <h4>
-            <small v-if="cart.final_total !== cart.total">折扣價：</small>
-            ${{ $filters.currency(item.final_total) }}元
+            <small v-if="item.coupon">已折扣</small>
+            小計：${{ $filters.currency(item.final_total) }}元
           </h4>
           <button
             type="button"
@@ -55,10 +55,13 @@
             <button type="button" @click="addCouponCode()">套用優惠碼</button>
           </div>
           <div class="price">
-            <h4>總計：${{ $filters.currency(cart.total) }}元</h4>
-            <strong v-if="cart.final_total !== cart.total">
+            <div class="discount"  v-if="cart.final_total !== cart.total">
+            <h4>總計：${{ $filters.currency(cart.total) }}元</h4>  
+            <strong>
               折扣價：${{ $filters.currency(cart.final_total) }}元
             </strong>
+            </div>
+            <h4 v-else>總計：${{ $filters.currency(cart.total) }}元</h4>
           </div>
         </div>
         <div class="cart-footer">
@@ -120,6 +123,7 @@ export default {
       };
       this.$http.put(url, { data: cart }).then((res) => {
         this.status.loadingItem = "";
+        this.isLoading = false;
         this.getCart();
       });
     },

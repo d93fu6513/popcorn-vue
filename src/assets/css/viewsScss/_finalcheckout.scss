@@ -79,7 +79,7 @@ img {
 
     .check form {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         margin: 30px 0;
 
         @media screen and (max-width: 768px) {
@@ -87,7 +87,12 @@ img {
             padding: 0 10px;
         }
     }
-
+    .cart {
+        width: 45%;
+        @media screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
     .cart-box {
         display: flex;
         justify-content: center;
@@ -100,23 +105,14 @@ img {
     }
 
     td {
-        width: 150px;
-        font-size: 20px;
+        font-size: $font-m;
         color: $black;
         text-align: center;
-        padding: 10px;
+        padding: 10px;       
 
-        &:first-child {
-            text-align: left;
-        }
-
-        &:last-child {
-            text-align: end;
-        }
-
-        @media screen and (max-width: 768px) {
-            margin: 10px 0;
-        }
+        // @media screen and (max-width: 768px) {
+        //     
+        // }
     }
 
     h3 {
@@ -168,10 +164,6 @@ img {
 
             &:hover {
                 transform: scale(1.1);
-            }
-
-            &:first-child {
-                background-color: $black-light;
             }
         }
     }

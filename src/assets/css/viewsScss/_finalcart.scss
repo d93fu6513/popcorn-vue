@@ -2,7 +2,6 @@
 
 img {
     width: 13%;
-    height: auto;
     vertical-align: middle;
 
     @media screen and (max-width: 768px) {
@@ -172,6 +171,11 @@ img {
             color: $pink;
             transition: .3s ease-in-out;
             margin-right: 30px;
+            @media screen and (max-width: 768px) {
+                margin-right: 0;
+                padding: 10px 0;
+                font-size: $font-l;
+            }
 
             &:hover {
                 transform: scale(1.1);
@@ -233,10 +237,15 @@ img {
                 text-align: center;
                 margin: 10px 5px;
             }
-
-            strong {
-                color: $pink;
-                margin-left: 30px;
+            .discount{
+                display: flex;
+                h4{
+                    text-decoration: line-through;
+                }
+                strong {
+                    color: $pink;
+                    margin-left: 30px;
+                }
             }
         }
     }
