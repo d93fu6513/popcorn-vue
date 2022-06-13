@@ -172,6 +172,11 @@ img {
             color: $pink;
             transition: .3s ease-in-out;
             margin-right: 30px;
+            @media screen and (max-width: 768px) {
+                margin-right: 0;
+                padding: 10px 0;
+                font-size: $font-l;
+            }
 
             &:hover {
                 transform: scale(1.1);

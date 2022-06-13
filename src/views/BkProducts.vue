@@ -119,13 +119,11 @@ export default {
       this.$http[httpMethod](api, { data: this.tempProduct }).then((res) => {
         this.isLoading = false;
         //把儲存資料發送
-        console.log(res);
         productComponent.hideModal(); //新增完關閉
         this.$httpMessageState(res, '更新');
       });
     },
     openModal(isNew, item) {
-      // console.log(isNew,item);
       if (isNew) {
         this.tempProduct = {}; //如果打開資料是空的話，內層資料清空
       } else {
@@ -136,7 +134,6 @@ export default {
       productComponent.showModal(); //打開
     },
     openDelModal(item) {
-        console.log(item);
       this.tempProduct = { ...item }; 
       const delComponent = this.$refs.delModal;
       delComponent.showModal(); 
@@ -146,7 +143,6 @@ export default {
       this.isLoading = true;
       this.$http.delete(api).then((res) => {
         this.isLoading = false;
-        console.log(res.data);
         const delComponent = this.$refs.delModal;
         delComponent.hideModal(); 
         this.getProducts(); 

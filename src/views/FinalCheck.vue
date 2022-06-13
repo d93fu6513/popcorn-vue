@@ -15,7 +15,7 @@
             <table>
               <tr>
                 <td>{{ item.product.title }}</td>
-                <td>{{ item.qty }}</td>
+                <td>{{ item.qty }} / {{ item.product.unit }}</td>
                 <td>${{ $filters.currency(item.final_total) }}</td>
               </tr>
             </table>
@@ -107,54 +107,24 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'pinia';
+import productStore from "@/stores/productStore";
+import statusStore from '@/stores/statusStore';
+import cartStore from '@/stores/cartStore';
+
+// const status = statusStore();
+
 export default {
-  data() {
-    return {
-      products: [],
-      product: {},
-      status: {
-        loadingItem: "", //對應品項id
-      },
-      cart: {},
-      form: {
-        user: {
-          name: "",
-          email: "",
-          tel: "",
-          address: "",
-        },
-        message: "",
-      },
-    };
+  computed: {
+    ...mapState(productStore, ['products', 'product']),
+    ...mapState(statusStore, ['isLoading']),
+    ...mapState(cartStore, ['cart', 'form']),
   },
+
   methods: {
-    getProducts() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        this.products = res.data.products;
-        this.isLoading = false;
-      });
-    },
-    getCart() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        this.cart = res.data.data;
-        this.isLoading = false;
-      });
-    },
-    createOrder() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order`;
-      this.isLoading = true;
-      const order = this.form;
-      this.$http.post(url, { data: order }).then((res) => {
-        this.$httpMessageState(res, "送出訂單");
-        const orderId = res.data.orderId;
-        this.isLoading = false;
-        this.$router.push(`./checkout/${orderId}`);
-      });
-    },
+    ...mapActions(productStore, ['getProducts']),
+    ...mapActions(cartStore, ['getCart', 'createOrder']),
+
   },
   created() {
     this.getProducts();

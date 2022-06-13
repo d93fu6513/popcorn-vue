@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkpopcorn_vue"]=self["webpackChunkpopcorn_vue"]||[]).push([[526],{3526:function(e,r,n){n.r(r),n.d(r,{default:function(){return i}});var o=n(3396);function u(e,r,n,u,s,t){const a=(0,o.up)("Header"),p=(0,o.up)("router-view"),c=(0,o.up)("Footer"),f=(0,o.up)("ToastMessages");return(0,o.wg)(),(0,o.iD)(o.HY,null,[(0,o.Wm)(a),(0,o.Wm)(p),(0,o.Wm)(c),(0,o.Wm)(f)],64)}var s=n(3512),t=n(9036),a=n(1692),p={components:{Header:s.Z,Footer:t.Z,ToastMessages:a.Z}},c=n(89);const f=(0,c.Z)(p,[["render",u]]);var i=f}}]);
+//# sourceMappingURL=526.aaeff21c.js.map

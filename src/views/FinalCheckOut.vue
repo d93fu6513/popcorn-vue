@@ -17,7 +17,7 @@
                 <tr v-for="item in order.products" :key="item.id">
                   <td>{{ item.product.title }}</td>
                   <td>{{ item.qty }}/{{ item.product.unit }}</td>
-                  <td>{{ item.final_total }}</td>
+                  <td>${{ item.final_total }}元</td>
                 </tr>
               </table>
             </div>
@@ -29,31 +29,26 @@
               <table>
                 <tr>
                   <td>訂購姓名：</td>
-                  <td>{{ order.user.name }}</td>
-                  <td></td>
+                  <td colspan="2">{{ order.user.name }}</td>
                 </tr>
                 <tr>
                   <td>訂購信箱：</td>
-                  <td>{{ order.user.email }}</td>
-                  <td></td>
+                  <td colspan="2">{{ order.user.email }}</td>
                 </tr>
                 <tr>
                   <td>聯絡電話：</td>
-                  <td>{{ order.user.tel }}</td>
-                  <td></td>
+                  <td colspan="2">{{ order.user.tel }}</td>
                 </tr>
                 <tr>
                   <td>收件地址：</td>
-                  <td>{{ order.user.address }}</td>
-                  <td></td>
+                  <td colspan="2">{{ order.user.address }}</td>
                 </tr>
                 <tr>
                   <td>付款狀態：</td>
-                  <td>
+                  <td colspan="2">
                     <span v-if="!order.is_paid">尚未付款</span>
                     <span v-else class="text-success">付款完成</span>
                   </td>
-                  <td></td>
                 </tr>
               </table>
             </div>
@@ -68,37 +63,17 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "pinia";
+import statusStore from "@/stores/statusStore";
+import cartStore from "@/stores/cartStore";
+
 export default {
-  data() {
-    return {
-      order: {
-        user: {},
-      },
-      orderId: "",
-      isLoading: false,
-    };
+  computed: {
+    ...mapState(statusStore, ['isLoading']),
+    ...mapState(cartStore, ['order', 'orderId']),
   },
   methods: {
-    getOrder() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderId}`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        if (res.data.success) {
-          this.order = res.data.order;
-          this.isLoading = false;
-        }
-      });
-    },
-    payOrder() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${this.orderId}`;
-      this.isLoading = true;
-      this.$http.post(url).then((res) => {
-        if (res.data.success) {
-          this.getOrder();
-          this.isLoading = false;
-        }
-      });
-    },
+    ...mapActions(cartStore, ['getOrder', 'payOrder']),
   },
   created() {
     this.orderId = this.$route.params.orderId;

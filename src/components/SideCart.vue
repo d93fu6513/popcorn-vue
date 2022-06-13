@@ -69,8 +69,8 @@
 
 <script>
 import { mapState, mapActions } from 'pinia';
+import productStore from "@/stores/productStore";
 import statusStore from '@/stores/statusStore';
-import cartStore from '@/stores/cartStore';
 
 export default {
   data() {
@@ -79,11 +79,11 @@ export default {
     };
   },
   computed: {
+    ...mapState(productStore, ['cart', 'cartLen']),
     ...mapState(statusStore, ['isLoading', 'loadingItem']),
-    ...mapState(cartStore, ['cart', 'cartLen']),
   },
   methods: {
-    ...mapActions(cartStore, ['getCart', 'removeCartItem']),
+    ...mapActions(productStore, ['getCart', 'removeCartItem']),
 
     tooglesideCart() {
       this.sideCart = !this.sideCart;

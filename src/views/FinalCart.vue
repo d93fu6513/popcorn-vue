@@ -33,7 +33,7 @@
           <h4>${{ item.product.price }}元 / {{ item.product.unit }}</h4>
           <h4>
             <small v-if="cart.final_total !== cart.total">折扣價：</small>
-            ${{ $filters.currency(item.final_total) }}元
+            小計： ${{ $filters.currency(item.final_total) }}元
           </h4>
           <button
             type="button"
@@ -74,45 +74,17 @@
 import { mapState, mapActions } from "pinia";
 import productStore from "@/stores/productStore";
 import statusStore from "@/stores/statusStore";
-import cartStore from "@/stores/cartStore";
+
 
 export default {
-  data() {
-    return {
-      coupon_code: "",
-    };
-  },
   computed: {
-    ...mapState(productStore, ["products", "product"]),
-    ...mapState(statusStore, ["isLoading", "loadingItem"]),
-    ...mapState(cartStore, ["cart", "cartLen"]),
+    ...mapState(productStore, ['products', 'product', 'cart', 'coupon_code']),
+    ...mapState(statusStore, ['isLoading', 'loadingItem']),
   },
   methods: {
-    ...mapActions(productStore, ["getProducts"]),
-    ...mapActions(cartStore, ["getCart", "updateCart", "removeCartItem"]),
+    ...mapActions(productStore, ['plus', 'minus', 'getProducts', 'getCart', 'updateCart', 'removeCartItem', 'addCouponCode' ]),
 
-    plus(item) {
-      item.qty += 1;
-      this.updateCart(item);
-    },
-    minus(item) {
-      if (item.qty > 1) {
-        item.qty -= 1;
-        this.updateCart(item);
-      }
-    },
-    addCouponCode() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
-      // status.isLoading = true;
-      const coupon = {
-        code: this.coupon_code,
-      };
-      this.$http.post(url, { data: coupon }).then((response) => {
-        // this.$httpMessageState(response, "加入優惠券");
-        this.getCart();
-        // status.isLoading = false;
-      });
-    },
+    
   },
   created() {
     this.getProducts();

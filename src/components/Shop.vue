@@ -152,7 +152,6 @@
 import { mapState, mapActions } from "pinia";
 import productStore from "@/stores/productStore";
 import statusStore from "@/stores/statusStore";
-import cartStore from "@/stores/cartStore";
 
 export default {
   data() {
@@ -161,13 +160,11 @@ export default {
     };
   },
   computed: {
-    ...mapState(productStore, ['products', 'product']),
+    ...mapState(productStore, ['products', 'product', 'cart']),
     ...mapState(statusStore, ['isLoading', 'loadingItem']),
-    ...mapState(cartStore, ['cart']),
   },
   methods: {
-    ...mapActions(productStore, ['getProducts']),
-    ...mapActions(cartStore, ['addCart']),
+    ...mapActions(productStore, ['getProducts','addCart']),
 
     getProduct(id) {
       this.$router.push(`/product/product/${id}`);

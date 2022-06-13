@@ -18,19 +18,18 @@
 
 <script>
 import Toast from '../components/Toast.vue';
+import statusStore from "@/stores/statusStore";
+import { storeToRefs } from 'pinia';
+
 export default {
   components: { Toast },
-  data() {
-    return {
-      messages: [],
-    };
-  },
-  inject: ['emitter'], //可以省去這個步驟import emitter from "../methods/emitter";
-  mounted() {
-    this.emitter.on('push-message', (message) => {
-      const { style = 'success', title, content } = message;
-      this.messages.push({ style, title, content });
-    });
-  },
+  setup() {
+    const status = statusStore();
+    const { messages } = storeToRefs(status);
+
+    return{
+      messages,
+    }
+  }
 };
 </script>
