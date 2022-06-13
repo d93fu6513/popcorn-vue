@@ -65,15 +65,15 @@
 <script>
 import { mapState, mapActions } from "pinia";
 import statusStore from "@/stores/statusStore";
-import cartStore from "@/stores/cartStore";
+import productStore from "@/stores/productStore";
 
 export default {
   computed: {
     ...mapState(statusStore, ['isLoading']),
-    ...mapState(cartStore, ['order', 'orderId']),
+    ...mapState(productStore, ['order', 'orderId']),
   },
   methods: {
-    ...mapActions(cartStore, ['getOrder', 'payOrder']),
+    ...mapActions(productStore, ['getOrder', 'payOrder']),
   },
   created() {
     this.orderId = this.$route.params.orderId;

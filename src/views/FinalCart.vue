@@ -83,7 +83,6 @@ export default {
   },
   methods: {
     ...mapActions(productStore, ['plus', 'minus', 'getProducts', 'getCart', 'updateCart', 'removeCartItem', 'addCouponCode' ]),
-
     
   },
   created() {

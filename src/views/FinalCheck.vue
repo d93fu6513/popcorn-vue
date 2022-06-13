@@ -110,20 +110,16 @@
 import { mapState, mapActions } from 'pinia';
 import productStore from "@/stores/productStore";
 import statusStore from '@/stores/statusStore';
-import cartStore from '@/stores/cartStore';
 
-// const status = statusStore();
 
 export default {
   computed: {
-    ...mapState(productStore, ['products', 'product']),
+    ...mapState(productStore, ['products', 'product', 'cart', 'form']),
     ...mapState(statusStore, ['isLoading']),
-    ...mapState(cartStore, ['cart', 'form']),
   },
 
   methods: {
-    ...mapActions(productStore, ['getProducts']),
-    ...mapActions(cartStore, ['getCart', 'createOrder']),
+    ...mapActions(productStore, ['getProducts', 'getCart', 'createOrder']),
 
   },
   created() {
